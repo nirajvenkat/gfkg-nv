@@ -1,5 +1,5 @@
 # Gauge Fields, Knots and Gravity
-Solutions and miscellaneous notes for the book "Gauge Fields, Knots and Gravity" by John Baez and Javier P. Muniain.
+Solutions and miscellaneous notes for the book [Gauge Fields, Knots and Gravity](https://doi.org/10.1142/2324) by John Baez and Javier P. Muniain.
 
 Latest version is available [here](gfkg_notes.pdf).
 
