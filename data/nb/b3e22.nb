@@ -1,0 +1,153 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5706,        145]
+NotebookOptionsPosition[      4527,        122]
+NotebookOutlinePosition[      4924,        138]
+CellTagsIndexPosition[      4881,        135]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<OGRe`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.933058160794083*^9, 3.933058164015856*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"cc2f2ae2-f544-42f1-8cc5-da30da6b30ea"],
+
+Cell[BoxData[
+ RowBox[{"TNewCoordinates", "[", 
+  RowBox[{"\"\<Cartesian\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "x", ",", "y", ",", "z"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.933058182214383*^9, 3.933058212395934*^9}, {
+  3.9331468449055*^9, 3.933146847534361*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"61cffca9-1c1f-4532-bc5b-606bd462f2ca"],
+
+Cell[BoxData[
+ RowBox[{"TNewMetric", "[", 
+  RowBox[{"\"\<GW\>\"", ",", "\"\<Cartesian\>\"", ",", 
+   RowBox[{"DiagonalMatrix", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "1"}], ",", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"L", "[", 
+         RowBox[{"t", "-", "z"}], "]"}], "2"], 
+       RowBox[{"Exp", "[", 
+        RowBox[{"2", 
+         RowBox[{"\[Beta]", "[", 
+          RowBox[{"t", "-", "z"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"L", "[", 
+         RowBox[{"t", "-", "z"}], "]"}], "2"], 
+       RowBox[{"Exp", "[", 
+        RowBox[{
+         RowBox[{"-", "2"}], 
+         RowBox[{"\[Beta]", "[", 
+          RowBox[{"t", "-", "z"}], "]"}]}], "]"}]}], ",", "1"}], "}"}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9338209536810417`*^9, 3.933821079633236*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"f7b5fcf3-0a35-4ceb-98ea-2d42e8a32e66"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRiemannTensor", "[", "\"\<GW\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{3.933146774988262*^9, 3.933821118043984*^9},
+ CellLabel->"In[4]:=",ExpressionUUID->"8ebaad67-8131-4b32-b95f-6b81b25750c6"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRicciTensor", "[", "\"\<GW\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.933146984492016*^9, 3.933146984752984*^9}, 
+   3.9338211196544724`*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"ceee8104-471b-4491-a1bf-01004c99fbbe"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRicciScalar", "[", "\"\<GW\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.9331469981116533`*^9, 3.933146999118629*^9}, 
+   3.933821133068934*^9},
+ CellLabel->"In[6]:=",ExpressionUUID->"0180dc6b-9667-4c69-9428-2783c7aa2773"],
+
+Cell[BoxData[
+ RowBox[{"TList", "[", 
+  RowBox[{
+   RowBox[{"TCalcEinsteinTensor", "[", "\"\<GW\>\"", "]"}], ",", 
+   RowBox[{"ReplaceAll", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"t", "-", "z"}], "->", "u"}], "}"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.933821190350931*^9, 3.933821227684251*^9}, {
+  3.933821361709803*^9, 3.933821363768794*^9}, {3.9338216174718*^9, 
+  3.9338216227025137`*^9}, {3.933821734568439*^9, 3.933821779571168*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"308ae51e-35d6-4bae-80cc-5fd43ecf9eba"],
+
+Cell[BoxData[
+ RowBox[{"TSetAssumptions", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"L", "->", "1"}], ",", 
+    RowBox[{"\[Beta]", "->", "0"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9338223956747627`*^9, 3.933822407892906*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"4bcd4d0b-8000-49bb-87df-080fa017184b"],
+
+Cell[BoxData[
+ RowBox[{"TShow", "[", 
+  RowBox[{"\"\<GW\>\"", ",", 
+   RowBox[{"ReplaceAll", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"t", "-", "z"}], "->", "u"}], "}"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.933821800806787*^9, 3.9338218547769547`*^9}, {
+   3.933822086637032*^9, 3.933822095555058*^9}, {3.933822155228045*^9, 
+   3.933822189054885*^9}, {3.933822228896289*^9, 3.933822248325368*^9}, 
+   3.933822459037669*^9, {3.933822796996541*^9, 3.933822808257732*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"b38585e9-65c0-47fa-b0ff-f49f844b7fcf"],
+
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.933146810347967*^9, 3.933146811706682*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"df833905-fbf8-4898-8f83-70c791fca442"]
+},
+WindowSize->{756, 916},
+WindowMargins->{{22, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.3 for Mac OS X ARM (64-bit) (September 30, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a5f0beb9-17ee-4ae2-8527-44cfd9bb37f1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 214, 3, 30, "Input",ExpressionUUID->"cc2f2ae2-f544-42f1-8cc5-da30da6b30ea"],
+Cell[775, 25, 367, 7, 30, "Input",ExpressionUUID->"61cffca9-1c1f-4532-bc5b-606bd462f2ca"],
+Cell[1145, 34, 924, 26, 56, "Input",ExpressionUUID->"f7b5fcf3-0a35-4ceb-98ea-2d42e8a32e66"],
+Cell[2072, 62, 249, 4, 30, "Input",ExpressionUUID->"8ebaad67-8131-4b32-b95f-6b81b25750c6"],
+Cell[2324, 68, 277, 5, 30, "Input",ExpressionUUID->"ceee8104-471b-4491-a1bf-01004c99fbbe"],
+Cell[2604, 75, 277, 5, 30, "Input",ExpressionUUID->"0180dc6b-9667-4c69-9428-2783c7aa2773"],
+Cell[2884, 82, 542, 11, 30, "Input",ExpressionUUID->"308ae51e-35d6-4bae-80cc-5fd43ecf9eba"],
+Cell[3429, 95, 319, 7, 30, "Input",ExpressionUUID->"4bcd4d0b-8000-49bb-87df-080fa017184b"],
+Cell[3751, 104, 572, 11, 30, "Input",ExpressionUUID->"b38585e9-65c0-47fa-b0ff-f49f844b7fcf"],
+Cell[4326, 117, 197, 3, 30, "Input",ExpressionUUID->"df833905-fbf8-4898-8f83-70c791fca442"]
+}
+]
+*)
+

@@ -1,0 +1,152 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5874,        144]
+NotebookOptionsPosition[      4512,        119]
+NotebookOutlinePosition[      4908,        135]
+CellTagsIndexPosition[      4865,        132]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<OGRe`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.933058160794083*^9, 3.933058164015856*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"cc2f2ae2-f544-42f1-8cc5-da30da6b30ea"],
+
+Cell[BoxData[
+ RowBox[{"TNewCoordinates", "[", 
+  RowBox[{"\"\<Cartesian\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", "x", ",", "y", ",", "z"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.933058182214383*^9, 3.933058212395934*^9}, {
+  3.9331468449055*^9, 3.933146847534361*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"61cffca9-1c1f-4532-bc5b-606bd462f2ca"],
+
+Cell[BoxData[
+ RowBox[{"TNewCoordinates", "[", 
+  RowBox[{"\"\<S2\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Theta]", ",", "\[Phi]"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.933059092186825*^9, 3.933059096160166*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"86171227-ef59-40d4-a833-2c0478110654"],
+
+Cell[BoxData[
+ RowBox[{"TNewMetric", "[", 
+  RowBox[{"\"\<Wormhole\>\"", ",", "\"\<Spherical\>\"", ",", 
+   RowBox[{"DiagonalMatrix", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox[
+        RowBox[{"f", "[", "r", "]"}], "2"]}], ",", 
+      SuperscriptBox[
+       RowBox[{"f", "[", "r", "]"}], 
+       RowBox[{"-", "2"}]], ",", 
+      RowBox[{
+       SuperscriptBox["r", "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"Sin", "[", "\[Phi]", "]"}], "2"]}], ",", 
+      SuperscriptBox["r", "2"]}], "}"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.933058242796279*^9, 3.933058278745625*^9}, {
+  3.9330588801116343`*^9, 3.933058889180393*^9}, {3.933058965890502*^9, 
+  3.933058969636368*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"bb919b70-16b8-4cbf-b817-a3a48eaed21a"],
+
+Cell[BoxData[
+ RowBox[{"TNewMetric", "[", 
+  RowBox[{"\"\<Standard\>\"", ",", "\"\<S2\>\"", ",", 
+   RowBox[{"DiagonalMatrix", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"Sin", "[", "\[Phi]", "]"}], "2"], ",", "1"}], "}"}], "]"}], 
+   ",", "\"\<\!\(\*SubscriptBox[\(g\), \(s\)]\)\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.933058928088784*^9, 3.933058939069644*^9}, {
+  3.933059056998747*^9, 3.933059065048794*^9}, {3.9330590999472933`*^9, 
+  3.9330591260217323`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"842ac65d-ef30-41d0-ad35-a78fcdf4b072"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRiemannTensor", "[", "\"\<Standard\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{3.933146774988262*^9},
+ CellLabel->"In[7]:=",ExpressionUUID->"8ebaad67-8131-4b32-b95f-6b81b25750c6"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRicciTensor", "[", "\"\<Standard\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.933146984492016*^9, 3.933146984752984*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"ceee8104-471b-4491-a1bf-01004c99fbbe"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRicciScalar", "[", "\"\<Standard\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.9331469981116533`*^9, 3.933146999118629*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"0180dc6b-9667-4c69-9428-2783c7aa2773"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRiemannTensor", "[", "\"\<Wormhole\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{3.933146787440428*^9},
+ CellLabel->"In[8]:=",ExpressionUUID->"89e579dd-7ebc-4c97-9968-a39baf507e04"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRicciTensor", "[", "\"\<Wormhole\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{3.9331470121916733`*^9},
+ CellLabel->"In[11]:=",ExpressionUUID->"753f0594-bf1f-4adc-962d-f8be5775bea3"],
+
+Cell[BoxData[
+ RowBox[{"TList", "@", 
+  RowBox[{"TCalcRicciScalar", "[", "\"\<Wormhole\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{3.933147020838192*^9},
+ CellLabel->"In[12]:=",ExpressionUUID->"3a4b05d3-26bf-44e0-8b74-0a686de6331a"],
+
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.933146810347967*^9, 3.933146811706682*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"df833905-fbf8-4898-8f83-70c791fca442"]
+},
+WindowSize->{756, 916},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.3 for Mac OS X ARM (64-bit) (September 30, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a5f0beb9-17ee-4ae2-8527-44cfd9bb37f1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 214, 3, 30, "Input",ExpressionUUID->"cc2f2ae2-f544-42f1-8cc5-da30da6b30ea"],
+Cell[775, 25, 367, 7, 30, "Input",ExpressionUUID->"61cffca9-1c1f-4532-bc5b-606bd462f2ca"],
+Cell[1145, 34, 305, 6, 30, "Input",ExpressionUUID->"86171227-ef59-40d4-a833-2c0478110654"],
+Cell[1453, 42, 807, 20, 33, "Input",ExpressionUUID->"bb919b70-16b8-4cbf-b817-a3a48eaed21a"],
+Cell[2263, 64, 582, 12, 33, "Input",ExpressionUUID->"842ac65d-ef30-41d0-ad35-a78fcdf4b072"],
+Cell[2848, 78, 233, 4, 30, "Input",ExpressionUUID->"8ebaad67-8131-4b32-b95f-6b81b25750c6"],
+Cell[3084, 84, 255, 4, 30, "Input",ExpressionUUID->"ceee8104-471b-4491-a1bf-01004c99fbbe"],
+Cell[3342, 90, 258, 4, 30, "Input",ExpressionUUID->"0180dc6b-9667-4c69-9428-2783c7aa2773"],
+Cell[3603, 96, 233, 4, 30, "Input",ExpressionUUID->"89e579dd-7ebc-4c97-9968-a39baf507e04"],
+Cell[3839, 102, 234, 4, 30, "Input",ExpressionUUID->"753f0594-bf1f-4adc-962d-f8be5775bea3"],
+Cell[4076, 108, 232, 4, 30, "Input",ExpressionUUID->"3a4b05d3-26bf-44e0-8b74-0a686de6331a"],
+Cell[4311, 114, 197, 3, 30, "Input",ExpressionUUID->"df833905-fbf8-4898-8f83-70c791fca442"]
+}
+]
+*)
+
