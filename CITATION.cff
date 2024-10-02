@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software in your work, please cite it using the following metadata"
+title: "GFKG Solutions and Misc Notes"
+repository-code: "https://github.com/nirajvenkat/gfkg-nv"
+license: MIT
+year: 2024
+authors:
+  - name: "Niraj Venkat"
