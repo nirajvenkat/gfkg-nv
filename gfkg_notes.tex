@@ -1892,7 +1892,7 @@ $$
 % $$
 
 \begin{definition}
-	\tb{Poincaré Lemma:} Let $U \subset \R^n$ be contractible. Let $\omega \in \Omega^{k+1}(U)$ be closed. Then $\omega$ is exact, i.e. there exists an $\alpha \in \Omega^k(U)$ such that $\omega = d\alpha$. But this statement is \emph{false} for a general (non-Euclidean) manifold $M$, i.e., if $M$ has holes in it.
+	\tb{Poincaré Lemma:} Let $U \subset \R^n$ be contractible. Let $\omega \in \Omega^{k+1}(U)$ be closed. Then $\omega$ is exact, i.e. there exists an $\alpha \in \Omega^k(U)$ such that $\omega = d\alpha$. But this statement is \emph{false} for a general (non-Euclidean) manifold $M$, for example, if $M$ has holes in it.
 \end{definition}
 
 
@@ -3146,7 +3146,7 @@ $$
 \begin{example}
 	For analysts: show that this\mn{The \tb{exponential} of an $n\times n$ complex matrix $T$ is defined by the power series$$\exp(T)=\sum_{k=0}^{\infty} \frac{T^k}{k!}$$} sum converges.
 \end{example}
-\sol Matrix multiplication for some $A,B \in \mf{gl}(n,\R)$ satisfies the inequality $|AB| \le |A||B|$, where the norm is the Frobenius norm on $\mf{gl}(n,\R)$. It follows by induction that $|A^k| \le |A|^k$. The Weierstrass $M$-test then shows that the matrix exponential converges uniformly on any bounded subset of $\mf{gl}(n,\R)$, by comparison with the series $\sum_k(1/k!)c^k=e^c$.
+\sol Matrix multiplication \marginnote{See Ref [46] `Convergence of exp' for details.} for some $A,B \in \mf{gl}(n,\R)$ satisfies the inequality $|AB| \le |A||B|$, where the norm is the Frobenius norm on $\mf{gl}(n,\R)$. It follows by induction that $|A^k| \le |A|^k$. The Weierstrass $M$-test then shows that the matrix exponential converges uniformly on any bounded subset of $\mf{gl}(n,\R)$, by comparison with the series $\sum_k(1/k!)c^k=e^c$.
 
 
 \begin{definition}
@@ -3225,6 +3225,7 @@ $$
 	$$
 	\p*{\sum_{i=0}^{\infty} a_i}\cdot\p*{\sum_{j=0}^{\infty} b_j} = \sum_{n=0}^{\infty}c_n\quad\text{where}\quad c_n = \sum_{k=0}^{n}a_kb_{n-k}
 	$$
+	What we do here is go from an infinite double sum to another double sum (one sum is infinite, and the other one is grouped by $k$).
 \end{definition}
 
 
@@ -3255,7 +3256,7 @@ When $t=0$
 $$
 \exp(tT)\Big|_{t=0} = \id + \sum_{n=1}^{\infty} \frac{(tT)^n}{n!}\Big|_{t=0} = \id
 $$
-and its derivative w.r.t $t$ is quite simply
+and \marginnote{See Ref [46] `Properties of exp' on how to prove the derivative $$\frac{d}{dt}\exp(tT) = T\exp(tT)$$} its derivative w.r.t $t$ is actually
 $$
 \p*{\frac{d}{dt}\exp(tT)}\Big|_{t=0} = T\exp(tT)\Big|_{t=0} = T\id = T.
 $$
@@ -3540,7 +3541,7 @@ $$
 $$
 we see that $f$ is a Lie algebra isomorphism.\\\\
 % Durp. Just realized that we don't need to go into math mode to typeset Lie groups correctly.
-Lie algebras give local but not global information about Lie groups, so the fact that $\mf{su}(2)$ and $\mf{so}(3)$ are isomorphic tells us only that SO(3) and SU(2) are locally isomorphic. And of course we know they are not globally isomorphic because SU(2) is a double cover of SO(3).
+Lie algebras give local but not global information about Lie groups, so the fact that $\mf{su}(2)$ and $\mf{so}(3)$ are isomorphic tells us only that SO(3) and SU(2) are locally isomorphic. And of course we know they are not globally isomorphic because ${\rm SU}(2) \twoheadrightarrow {\rm SO}(3)$ (SU(2) is a double cover of SO(3)).
 
 
 \begin{example}\label{b2e46}
@@ -3958,6 +3959,18 @@ This shows $E\oplus E^\prime$ over $M$ has fiber over $p$: $E_p\oplus E_p^\prime
 	f:\mc{I}\to\bigcup_{i\in\mc{I}}S_i
 	$$
 	such that $f(i)\in S_i$ for all $i \in \mc{I}$. The \tb{axiom of choice} states that for any indexed collection of nonempty sets, there exists a choice function.\marginnote{Ref [25]}
+	% In particular, there must exist for a set $X$ a function that looks like:
+	% $$
+	% f:\mc{P}(X)\setminus\br{\emptyset}\to X
+	% $$.
+	% Equivalences of axiom of choice include:
+	% \begin{itemize}
+	% 	\item Zorn's Lemma
+	% 	\item Well-ordering theorem
+	% 	\item Every vector space has a basis
+	% 	\item Every (unital) ring contains a maximal ideal
+	% 	\item Tychonoff's theorem
+	% \end{itemize}
 \end{definition}
 
 
@@ -4183,7 +4196,7 @@ When these conditions are satisfied, $D^\prime$ is a $G$-connection $\Rightarrow
 
 
 \begin{example}
-	Put a norm on the vector space $V$ and give End$(V)$ the norm
+	Put a norm on the vector space $V$ and give End$(V)$ the norm\mn{Also called the \tb{operator norm}}
 	$$
 	\norm{T} = \sup_{\norm{u}=1}\norm{Tu}.
 	$$
@@ -4203,7 +4216,7 @@ $$
 	\norm{T_n} &= \sup_{\norm{u}=1}\norm{Tu}\\
 	&= \norm{(-1)^n\int_{0}^{t}\int_{0}^{t_1}\cdots\int_{0}^{t_{n-1}}A(\gamma^\prime(t_1))\cdots A(\gamma^\prime(t_n))dt_n\cdots dt_1 u}\\
 	&= \int_{0}^{t}\int_{0}^{t_1}\cdots\int_{0}^{t_{n-1}}\norm{A(\gamma^\prime(t_1))\cdots A(\gamma^\prime(t_n)) u} dt_n\cdots dt_1 \\
-	&\le \int_{0}^{t}\int_{0}^{t_1}\cdots\int_{0}^{t_{n-1}}\norm{A(\gamma^\prime(t_1))\cdots A(\gamma^\prime(t_n))}\norm{u}dt_n\cdots dt_1 \marginnote{Submultiplicativity of this norm (?)}\\
+	&\le \int_{0}^{t}\int_{0}^{t_1}\cdots\int_{0}^{t_{n-1}}\norm{A(\gamma^\prime(t_1))\cdots A(\gamma^\prime(t_n))}\norm{u}dt_n\cdots dt_1 \marginnote{Submultiplicativity of the operator norm:$$\norm{AB} \le \norm{A} \norm{B}$$Proved in Ref [46] `Optional: Matrix norms'}\\
 	&\le \int_{0}^{t}\int_{0}^{t_1}\cdots\int_{0}^{t_{n-1}} K^n \norm{u} dt_n\cdots dt_1\\
 	&= \int_{0}^{t}\int_{0}^{t_1}\cdots\int_{0}^{t_{n-2}} K^n \norm{u} t_{n-1}dt_{n-1}\cdots dt_1\\
 	&= \int_{0}^{t}\int_{0}^{t_1}\cdots\int_{0}^{t_{n-3}} K^n \norm{u} \frac{t_{n-2}^2}{2}dt_{n-2}\cdots dt_1\\
@@ -5425,6 +5438,8 @@ $$
 	\frac{\di t}{\hbar} \to \frac{1}{k_BT},
 	$
 	and the claim is that this will map a quantum field theory on to a statistical field theory. This transformation is known as a \tb{Wick rotation} and leads to a very nice feature for spacetime four-vectors. By rotating the time-like part we can transform the Minkowski metrics $(+,-,-,-)$ or $(-,+,+,+)$ into the familiar Euclidean metric $(+,+,+,+)$, with an overall minus sign in the first case.
+
+	This is a useful transformation in classical computations of lattice QFT.
 \end{definition}
 
 
@@ -5646,7 +5661,7 @@ $$
 \end{aligned}
 $$
 Where we go from step 2 to 3 by relabelling indices in such a way that the internal contraction marked in \textcolor{green}{green} and contractions with $\partial$ and $dx$ marked in \textcolor{red}{red} and \textcolor{blue}{blue} respectively remain the same. After doing this we can factor out the tensor product.\\\\
-Expressing this result using the notation $X=X_\beta^\alpha\partial_\alpha\otimes dx^\beta$ form the text:
+Expressing this result using the notation $X=X_\beta^\alpha\partial_\alpha\otimes dx^\beta$ from the text:
 $$
 	\nabla_\mu X = (X_{\beta,\mu}^\alpha+\Gamma_{\mu\lambda}^\alpha X_\beta^\lambda-\Gamma_{\mu\beta}^\lambda X_\lambda^\alpha)\partial_\alpha\otimes dx^\beta
 $$
@@ -5951,7 +5966,7 @@ TODO find an argument involving Einstein-Hilbert action and Euler characteristic
 \begin{example}
 	Show that for any 1-form $J$ on a Lorentzian manifold, $\star d\star J = -\nabla^\mu J_\mu$.
 \end{example}
-\sol For a Loretzian manifold equipped with a Minkowski metric of signature $(n-1,1)$
+\sol For a Lorentzian manifold equipped with a Minkowski metric of signature $(n-1,1)$
 $$
 \begin{aligned}
 	\star d\star J &= \star d\star (J_\mu dx^\mu)\\
@@ -5961,7 +5976,7 @@ $$
 	&= \star (\sign(i_1,\dots,i_n) \epsilon(i_\mu) \partial_\nu(J_\mu)dx^\nu\wedge dx^1\wedge\cdots \wedge\hat{dx^\mu} \wedge\cdots \wedge dx^n)\marginnote{Ex \ref{b1e28}}\\
 	&= \star (\sign(i_1,\dots,i_n) \epsilon(i_\mu) \partial_\mu(J_\mu)dx^\mu\wedge dx^1\wedge\cdots \wedge\hat{dx^\mu} \wedge\cdots \wedge dx^n)\marginnote{Assuming $\mu=\nu$}\\
 	&= \star (\sign(i_1,\dots,i_n)^2 \epsilon(i_\mu) \partial_\mu(J_\mu)\: \ub{dx^1\wedge\cdots\wedge dx^n}{\vol})\marginnote{$\mu$ ranges from 1 to $n$, giving us a sign of that permutation}\\
-	&= \epsilon(i_\mu) \partial_\mu(J_\mu)\:\star(\vol)\marginnote{$\star(\vol)=-1$ for a Loretzian manifold, Ex \ref{b1e67}}\\
+	&= \epsilon(i_\mu) \partial_\mu(J_\mu)\:\star(\vol)\marginnote{$\star(\vol)=-1$ for a Lorentzian manifold, Ex \ref{b1e67}}\\
 	&= -\epsilon(i_\mu) \partial_\mu(J_\mu)\\
 	&= -g^{\mu\mu} \partial_\mu(J_\mu)\marginnote{Ex \ref{b1e57}}\\
 	&= -\partial^\mu J_\mu\\
