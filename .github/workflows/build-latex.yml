@@ -1,0 +1,40 @@
+name: Build LaTeX and Create Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'   # Only trigger when you push a version tag like v1.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up TeX Live
+      uses: teatimeguest/setup-texlive-action@v2
+
+    - name: Install LaTeX packages
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-latex-extra latexmk
+
+    - name: Compile LaTeX document
+      run: |
+        latexmk -pdf -interaction=nonstopmode main.tex
+      working-directory: ./tex
+
+    - name: Upload compiled PDF as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: main-pdf
+        path: tex/main.pdf
+
+    - name: Create GitHub Release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: tex/main.pdf
