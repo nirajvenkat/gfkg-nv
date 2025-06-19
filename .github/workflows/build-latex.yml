@@ -11,33 +11,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Restore TeX Live cache
-      id: texlive-cache
-      uses: actions/cache@v4
-      with:
-        path: /usr/local/texlive
-        key: ${{ runner.os }}-texlive-${{ hashFiles('**/*.tex') }}
-        restore-keys: |
-          ${{ runner.os }}-texlive-
-
-    - name: Install TeX Live + tlmgr
+    - name: Install minimal TeX Live
       uses: zauguin/install-texlive@v3
       with:
-        packages: latexmk  # minimal placeholder to make it run
-        # No other packages specified — will install automatically
-        update: true
+        packages: >-
+          latexmk
+          marginnote
+          sidenotes
+          fancyhdr
+          geometry
+          xcolor
+          tcolorbox
+          fontenc
+          lmodern
+          mathrsfs
+          enumitem
+          mathtools
+          amsthm
+          amssymb
+          amsfonts
+          thmtools
+          amsmath
+          cancel
+          dsfont
+          bm
+          array
+          tabularx
+          booktabs
+          nicematrix
+          graphicx
+          wrapfig
+          float
+          caption
+          setspace
+          multicol
+          tikz
+          tikz-cd
+          tikzsymbols
+          physics
+          lipsum
 
-    - name: Auto-install missing LaTeX packages
+    - name: Compile LaTeX to PDF
       run: |
-        tlmgr option -- autobackup 0
-        tlmgr install latexmk
-        latexmk -pdf -interaction=nonstopmode gfkg_notes.tex || true
-        missing=$(grep "! LaTeX Error: File" gfkg_notes.log | sed -n "s/.*`\([^']*\)\.sty'.*/\1/p")
-        echo "Missing packages: $missing"
-        for pkg in $missing; do tlmgr install $pkg || true; done
         latexmk -pdf -interaction=nonstopmode gfkg_notes.tex
 
     - name: Upload compiled PDF as artifact
