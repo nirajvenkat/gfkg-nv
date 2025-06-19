@@ -26,7 +26,8 @@ jobs:
     - name: Install TeX Live + tlmgr
       uses: zauguin/install-texlive@v3
       with:
-        # No packages specified — will install automatically
+        packages: latexmk  # minimal placeholder to make it run
+        # No other packages specified — will install automatically
         update: true
 
     - name: Auto-install missing LaTeX packages
