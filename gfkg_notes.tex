@@ -184,29 +184,18 @@ of $M$ with an atlas $A$ then $M$ is a manifold.
 
 
 \begin{definition}
-	\tb{Paracompactness:} 
-	A topological space $X$ is said to be compact if every open cover of $X$ has a finite subcover. A space $X$ is said to be paracompact if every open cover of $X$ admits a locally finite open refinement.\mn{A collection $\cal{A}$ of subsets of $X$ is said 
-		 to be locally finite if each point of $X$ has a neighborhood that intersects
-		  at most finitely many of the sets in $\cal{A}$. Given a cover $\cal{A}$ of $X$, another 
-		  cover $\cal{B}$ is called a refinement of $\cal{A}$ if for each $B \in\cal{B}$ there exists some
-		   $A \in\cal{A}$ such that $B \subseteq A$. It is an open refinement if each $B \in\cal{B}$ is an open subset
-			of $X$. (Note that every subcover of $\cal{A}$ is a refinement of $\cal{A}$; but a refinement
-			 is not in general a subcover, because a refinement does not need to be
-			  composed of sets that are elements of $\cal{A}$.)}
+	\tb{Paracompactness:} A topological space $X$ is said to be compact if every open cover of $X$ has a finite subcover. A space $X$ is said to be paracompact if every open cover of $X$ admits a locally finite open refinement.\mn{A collection $\cal{A}$ of subsets of $X$ is said to be locally finite if each point of $X$ has a neighborhood that intersects at most finitely many of the sets in $\cal{A}$. Given a cover $\cal{A}$ of $X$, another cover $\cal{B}$ is called a refinement of $\cal{A}$ if for each $B \in\cal{B}$ there exists some $A \in\cal{A}$ such that $B \subseteq A$. It is an open refinement if each $B \in\cal{B}$ is an open subset of $X$. (Note that every subcover of $\cal{A}$ is a refinement of $\cal{A}$; but a refinement is not in general a subcover, because a refinement does not need to be composed of sets that are elements of $\cal{A}$.)}
 \end{definition}
 
 
 \begin{definition}
-	\tb{Hausdorff spaces:} Consider a set $\br{p_0}$ containing only one point.
-	Given $p \ne p_0$, the Hausdorff property says that there exist disjoint 
-	neighborhoods $U$ of $p$ and $V$ of $p_0$.
+	\tb{Hausdorff spaces:} Consider a set $\br{p_0}$ containing only one point. Given $p \ne p_0$, the Hausdorff property says that there exist disjoint neighborhoods $U$ of $p$ and $V$ of $p_0$.
 \end{definition}
 
 
 \begin{definition}
 	\tb{Second countable spaces:} We say that $X$ is first countable
-	if there exists a countable neighborhood basis at each point $p$, i.e, a countable collection
-	of nested neighborhoods around $p$. If $X$ is second countable:
+	if there exists a countable neighborhood basis at each point $p$, i.e, a countable collection of nested neighborhoods around $p$. If $X$ is second countable:
 	\begin{itemize}
 		\item $X$ is first countable.
 		\item $X$ contains a countable dense subset.
@@ -216,11 +205,7 @@ of $M$ with an atlas $A$ then $M$ is a manifold.
 
 
 \begin{example}\label{b1e5}
-	Given topological spaces $X$ and $Y$, we give $X \cross Y$ the \tb{product topology}
-	in which a set is open if and only if it is a union of sets of the form $U \cross V$,
-	where $U$ is open in $X$ and $V$ is open in $Y$. Show that if $M$ is an $m$-dimensional
-	manifold and $N$ is an $N$-dimensional
-	manifold, $M \cross N$ is an $(m+n)$-dimensional manifold.
+	Given topological spaces $X$ and $Y$, we give $X \cross Y$ the \tb{product topology} in which a set is open if and only if it is a union of sets of the form $U \cross V$, where $U$ is open in $X$ and $V$ is open in $Y$. Show that if $M$ is an $m$-dimensional manifold and $N$ is an $N$-dimensional manifold, $M \cross N$ is an $(m+n)$-dimensional manifold.
 \end{example}
 \sol To make it simpler let's assume that the product space is Hausdorff and second
 countable, so only the locally Euclidean property needs to be checked. Given any point
@@ -3738,10 +3723,32 @@ $$
 $$
 
 
+\begin{definition}
+	Given a matrix group $G$ with Lie algebra $\mf g$, if $g \in G$ and $X \in \mf{g}$, it can be shown that $gXg^{-1} \in \mf{g}$. This is the \tb{adjoint representation}, given by the homomorphism 
+	$$
+		\Ad : G \to \GL(\mf{g})
+	$$
+	defined by
+	$$
+		\Ad(g)X = gXg^{-1}
+	$$
+	The induced map on $\mf{g}$ is the map $\ad = \Ad_*: \mf{g} \to \mf{gl}(\mf{g})$.
+\end{definition}
+
+
+\begin{definition}
+	Every Lie algebra $\mf{g}$ comes equipped with a natural symmetric bilinear form $\p{\cdot,\cdot}$ called the \tb{Killing form} given by
+	$$
+		\p{X, Y} := \tr\p{\ad \,X \circ \ad \,Y}
+	$$
+	If the Killing form is degenerate, $\mf{g}$ is semisimple.
+\end{definition}
+
+
 \begin{example}
 	Show that $\mf{sl}(n,\R), \mf{sl}(n,\C), \mf{so}(p,q)$ and $\mf{su}(n)$ are semisimple, except for certain low-dimensional cases, which you should determine.
 \end{example}
-\sol TODO
+\sol TODO\marginnote{The long proof of this without using the Killing form is in Ref [9]}
 
 
 \begin{example}
