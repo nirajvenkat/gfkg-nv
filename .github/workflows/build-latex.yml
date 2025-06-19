@@ -22,6 +22,7 @@ jobs:
           collection-latex
           collection-latexrecommended
           collection-fontsrecommended
+          collection-latexextra
 
     - name: Compile LaTeX to PDF
       run: |
