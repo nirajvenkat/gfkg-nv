@@ -1,10 +1,10 @@
 name: Build LaTeX and Create Release
 
 on:
-  workflow_dispatch:
   push:
     tags:
-      - 'v*'   # Only trigger when you push a version tag like v1.0.0
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,27 +14,27 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up TeX Live
-      uses: teatimeguest/setup-texlive-action@v2
+    - name: Install minimal TeX Live
+      uses: zauguin/install-texlive@v3
+      with:
+        packages: >-
+          latexmk
+          collection-latex
+          collection-latexrecommended
+          collection-fontsrecommended
 
-    - name: Install LaTeX packages
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y texlive-latex-extra latexmk
-
-    - name: Compile LaTeX document
+    - name: Compile LaTeX to PDF
       run: |
         latexmk -pdf -interaction=nonstopmode gfkg_notes.tex
-      working-directory: ./tex
 
     - name: Upload compiled PDF as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: compile-pdf
-        path: tex/gfkg_notes.pdf
+        name: gfkg-notes-pdf
+        path: gfkg_notes.pdf
 
     - name: Create GitHub Release
       if: startsWith(github.ref, 'refs/tags/v')
       uses: softprops/action-gh-release@v2
       with:
-        files: tex/gfkg_notes.pdf
+        files: gfkg_notes.pdf
