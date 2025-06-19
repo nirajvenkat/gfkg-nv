@@ -22,5 +22,5 @@ jobs:
         with:
           files: gfkg_notes.pdf
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT_GFKG }}
 
