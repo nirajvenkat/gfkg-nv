@@ -1,5 +1,11 @@
 name: Build LaTeX document
-on: [push]
+
+on:
+  push:
+    tags:
+      - 'v*'  # Only runs on version tags like v1.0.0
+  workflow_dispatch:  # Also allow manual triggering
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
@@ -15,4 +21,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: gfkg_notes.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
