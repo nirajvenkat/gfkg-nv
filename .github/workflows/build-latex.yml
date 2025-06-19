@@ -24,17 +24,17 @@ jobs:
 
     - name: Compile LaTeX document
       run: |
-        latexmk -pdf -interaction=nonstopmode main.tex
+        latexmk -pdf -interaction=nonstopmode gfkg_notes.tex
       working-directory: ./tex
 
     - name: Upload compiled PDF as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: main-pdf
-        path: tex/main.pdf
+        name: compile-pdf
+        path: tex/gfkg_notes.pdf
 
     - name: Create GitHub Release
       if: startsWith(github.ref, 'refs/tags/v')
       uses: softprops/action-gh-release@v2
       with:
-        files: tex/main.pdf
+        files: tex/gfkg_notes.pdf
