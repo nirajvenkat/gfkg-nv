@@ -3724,31 +3724,51 @@ $$
 
 
 \begin{definition}
-	Given a matrix group $G$ with Lie algebra $\mf g$, if $g \in G$ and $X \in \mf{g}$, it can be shown that $gXg^{-1} \in \mf{g}$. This is the \tb{adjoint representation}, given by the homomorphism 
+	Given a Lie group $G$ with Lie algebra $\mf g$, if $g \in G$ and $X,Y \in \mf{g}$, it can be shown that $gXg^{-1} \in \mf{g}$. This is the \tb{adjoint representation}, given by the homomorphism 
 	$$
 		\Ad : G \to \GL(\mf{g})
 	$$
-	defined by
+	defined by conjugation
 	$$
-		\Ad(g)X = gXg^{-1}
+		\Ad(g)X := gXg^{-1}
 	$$
-	The induced map on $\mf{g}$ is the map $\ad = \Ad_*: \mf{g} \to \mf{gl}(\mf{g})$.
+	The induced map on $\mf{g}$ is the map $\ad = \Ad_*: \mf{g} \to \mf{gl}(\mf{g})$, which is just the Lie bracket
+	$$
+		\ad(X)Y := [X, Y]
+	$$
+	For a matrix Lie group have $\Ad \p{e^X} = e^{\ad \p{X}}$.
 \end{definition}
 
 
 \begin{definition}
-	Every Lie algebra $\mf{g}$ comes equipped with a natural symmetric bilinear form $\p{\cdot,\cdot}$ called the \tb{Killing form} given by
+	Every Lie algebra $\mf{g}$ comes equipped with a natural symmetric bilinear form $\kappa\p{\cdot,\cdot}$ called the \tb{Killing form}, given by
 	$$
-		\p{X, Y} := \tr\p{\ad \,X \circ \ad \,Y}
+		\kappa_\mf{g}\p{X, Y} := \tr\p{\ad \p{X} \circ \ad \p{Y}}
 	$$
-	If the Killing form is degenerate, $\mf{g}$ is semisimple.
+	\underline{Cartan Criterion:} If the Killing form is nondegenerate, $\mf{g}$ is semisimple.
 \end{definition}
 
 
 \begin{example}
 	Show that $\mf{sl}(n,\R), \mf{sl}(n,\C), \mf{so}(p,q)$ and $\mf{su}(n)$ are semisimple, except for certain low-dimensional cases, which you should determine.
 \end{example}
-\sol TODO\marginnote{The long proof of this without using the Killing form is in Ref [9]}
+\sol It \marginnote{Ref [9] uses a linear combination of the Lie bracket of other elements, without resorting to the Killing form}can be shown that for $X, Y \in \gl(n,\F)$
+$$
+	\kappa_{\mf{g}}(X, Y) = 2n\tr(XY) - 2\tr(X)\tr(Y)
+$$
+See Ref [47] Ex 10.2 that explicitly computes this using structure constants.\\
+Let's specialize to the subalgebras (see Ref [48] Ex 12.3 for the full calculation):
+\begin{itemize}
+	\item \underline{$\mf{g} = \mf{sl}(n,\C)$:} The set of complex traceless matrices so $\kappa_\mf{g}(X, Y) = 2n\tr(XY)$. $\kappa_\mf{g}$ is nondegenerate for $n \ge 2$.
+	\item \underline{$\mf{g} = \mf{sl}(n,\R)$:} This follows as above, the only difference is when restricting the field to $\R$, this form is indefinite (has both positive and negative values).
+	\item \underline{$\mf{g} = \mf{so}(p,q)$:} The set of real $(p+q)\times(p+q)$ matrices preserving a quadratic form with signature $(p,q)$. With metric $\eta = \diag(\ub{1,\cdots,1}{p\text{ times}}, \ub{-1,\cdots,-1}{q\text{ times}})$, we have
+	$$
+		\so(p,q) = \br{X \in \gl(p+q, \R) ~|~ X^\intercal\eta + \eta X = 0}
+	$$
+	Because $\eta = \eta^\intercal = \eta^{-1} \implies X^\intercal = -\eta X\eta$.\\
+	We can show that $\kappa_\mf{g}(X, Y) = (p+q-2)\tr(XY)$, which is nondegenerate for $p+q > 2$.
+	\item \underline{$\mf{g} = \mf{su}(n)$:} From Ex \ref{b2e41}, we know that this is the set of traceless skew-Hermitian complex $n\times n$ matrices. We can show that $\kappa_\mf{g}(X, Y) = 2n\Re(\tr(XY))$. The product $XY$ of $X, Y\in \su(n)$ is again Hermitian so $\tr(XY) \in \R$. This reduces to the $\mathfrak{sl}$ case with the only difference being $\kappa_\mf{g}$ is negative definite.
+\end{itemize}
 
 
 \begin{example}
@@ -3758,7 +3778,11 @@ $$
 	$$
 	Show that if $G$ and $H$ are Lie groups with Lie algebras $\mf{g}$ and $\mf{h}$, the Lie algebra of $G \cross H$ is isomorphic to $\mf{g} \oplus \mf{h}$. Show that if $\mf{g}$ and $\mf{h}$ are semisimple, so is $\mf{g} \oplus \mf{h}$.
 \end{example}
-\sol TODO
+\sol The Killing form of $\mf{g} \oplus \mf{h}$ is:
+$$
+\kappa_{\mf{g} \oplus \mf{h}}((X_1, Y_1), (X_2, Y_2)) = \kappa_{\mf{g}}(X_1, X_2) + \kappa_{\mf{h}}(Y_1, Y_2)
+$$
+This form is nondegenerate $\Leftrightarrow$ both $\kappa_{\mf{g}}$ and $\kappa_{\mf{h}}$ are nondegenerate (direct sum of nondegenerate forms is nondegenerate).
 
 
 
