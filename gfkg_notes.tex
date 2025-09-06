@@ -8,8 +8,21 @@
 % ----------------------------------------------------------------------
 \nocite{*}
 
-\title{{Gauge Fields, Knots and Gravity}\\{\normalsize{\itshape Solutions and Miscellaneous Notes}}\\{\normalsize{{\href{https://github.com/nirajvenkat/gfkg-nv}{v0.0.4}} - \today}}}
-\author{By Niraj Venkat\\Authors of Main Text: John Baez and Javier P. Muniain}
+\title{
+	Gauge Fields, Knots and Gravity\\
+	{\normalsize{\itshape Solutions and Miscellaneous Notes}}\\
+	{\normalsize v0.0.5 - \today}
+}
+\author{
+	By Niraj Venkat\\
+	\href{https://github.com/nirajvenkat/gfkg-nv}{Link to Repo}\\
+
+	\vspace{2em}
+	
+	Original Authors: John Baez and Javier P. Muniain\\
+	\href{https://doi.org/10.1142/2324}{Link to Main Text}\\
+	\href{https://math.ucr.edu/home/baez/errata.html}{Link to Main Errata}
+}
 \maketitle
 \newpage
 \pagestyle{fancynotes}
@@ -54,7 +67,7 @@ $$
 	&= 0
 \end{aligned}
 $$
-Then the curl (in Einstein notation):\marginnote{Cross product in Einstein notation:$$\vec u \times \vec v = \epsilon_{ijk}u_jv_k$$}
+Then the curl (in Einstein notation):\marginnote{Cross product in Einstein notation:$$\p{\vec u \times \vec v}_i = \epsilon_{ijk}u_jv_k$$}
 $$
 \begin{aligned}
 	(\grad \times \vec{\cal E})_i &= \epsilon_{ijk}\partial_j{\mc E}_k({\vec t},x)\\
@@ -146,7 +159,7 @@ $$
 $$
 Solve the last equation for $\lambda$ and substitute into the other equations to obtain:
 $$
-	\sigma(x^1,\dots,x^{n+1}) = \frac{(x^1,\dots,x^{n+1})}{1-x^{n+1}}
+	\sigma(x^1,\dots,x^{n+1}) = \frac{(x^1,\dots,x^n)}{1-x^{n+1}}
 $$
 Its inverse can be found by solving (1) to get:
 $$
@@ -172,15 +185,8 @@ works in a neighborhood of $N$.
 	Show that if $M$ is a manifold and $U$ is an open subset of $M$, then $U$ with
 	its induced topology is a manifold.
 \end{example}
-\sol Say $U$ is a disjoint union of open sets $U_i$.
-If $A=\br{(U_i,\varphi_i)}$ is an atlas for $M$,
-then $A^\prime=\br{(U_i \cap U,\varphi_i^\prime)}$ is an atlas for $U$, where
-$\varphi_i^\prime = \varphi|_{U_i \cap U}$.\\\\
-Since intersection of open sets is open, $U_i \cap U$ is open, and the transition functions
-$\varphi_i^\prime \circ (\varphi_j^\prime)^{-1}$ will be smooth as well for any charts
-$(U_i \cap U,\varphi_i^\prime)$ and $(U_j \cap U,\varphi_j^\prime)$ in $A^\prime$.
-Hence $U$ is a manifold. This is not much of a reach because by definition if $U$ is an open \emph{cover}
-of $M$ with an atlas $A$ then $M$ is a manifold.
+\sol Say $U$ is a disjoint union of open sets $U_i$. If $A=\br{(U_i,\varphi_i)}$ is an atlas for $M$, then $A^\prime=\br{(U_i \cap U,\varphi_i^\prime)}$ is an atlas for $U$, where $\varphi_i^\prime = \varphi|_{U_i \cap U}$.\\\\
+Since intersection of open sets is open, $U_i \cap U$ is open, and the transition functions $\varphi_i^\prime \circ (\varphi_j^\prime)^{-1}$ will be smooth as well for any charts $(U_i \cap U,\varphi_i^\prime)$ and $(U_j \cap U,\varphi_j^\prime)$ in $A^\prime$. Hence $U$ is a manifold. This is not much of a reach because by definition if $U$ is an open \emph{cover} of $M$ with an atlas $A$ then $M$ is a manifold.
 
 
 \begin{definition}
@@ -207,27 +213,14 @@ of $M$ with an atlas $A$ then $M$ is a manifold.
 \begin{example}\label{b1e5}
 	Given topological spaces $X$ and $Y$, we give $X \cross Y$ the \tb{product topology} in which a set is open if and only if it is a union of sets of the form $U \cross V$, where $U$ is open in $X$ and $V$ is open in $Y$. Show that if $M$ is an $m$-dimensional manifold and $N$ is an $N$-dimensional manifold, $M \cross N$ is an $(m+n)$-dimensional manifold.
 \end{example}
-\sol To make it simpler let's assume that the product space is Hausdorff and second
-countable, so only the locally Euclidean property needs to be checked. Given any point
-$p = (p_M, p_N) \in M \cross N$, there exist open sets $U, V$ within neighborhoods of $p_M, p_N$
-that get sent by homeomorphisms $\varphi_M, \varphi_N$ to an open subset of $\R^m$ and $\R^n$ respectively.
-Why? Because $M \cross N$ is a manifold.\\\\
-Now, we propose that a product of continuous
-maps is continuous, and a product of homeomorphisms is a homeomorphism. So the product map
-$\varphi_M \times \varphi_N$ is a homeomorphism from a neighborhood of $p$ to an open subset
-of $\R^m \cross \R^n \cong \R^{m+n}$. In general, $M_1 \cross \dots \cross M_k$ is a $(d_1 + \dots + d_k)$-dimensional manifold.
+\sol We know that the product space $M \cross N$ is a topological space under the product topology. To make it simpler let's assume that the product space is Hausdorff and second countable, so only the locally Euclidean property needs to be checked. Given any point $p = (p_M, p_N) \in M \cross N$, there exist open sets $U, V$ within neighborhoods of $p_M, p_N$ that get sent by homeomorphisms $\varphi_M, \varphi_N$ to an open subset of $\R^m$ and $\R^n$ respectively.\\\\
+Now, we propose that a product of continuous maps is continuous, and a product of homeomorphisms is a homeomorphism. So the product map $\varphi_M \times \varphi_N$ is a homeomorphism from a neighborhood of $p$ to an open subset of $\R^m \cross \R^n \cong \R^{m+n}$. In general, $M_1 \cross \dots \cross M_k$ is a $(d_1 + \dots + d_k)$-dimensional manifold.
 
 
 \begin{example}
-	Given topological spaces $X$ and $Y$, we give $X \cup Y$ the \tb{disjoint union topology}
-	in which a set is open if and only if it is the union of an open subset of $X$
-	and an open subset of $Y$. Show that if $M$ and $N$ are $n$-dimensional manifolds
-	the disjoint union $M \cup N$ is an $n$-dimensional manifold.
+	Given topological spaces $X$ and $Y$, we give $X \cup Y$ the \tb{disjoint union topology} in which a set is open if and only if it is the union of an open subset of $X$ and an open subset of $Y$. Show that if $M$ and $N$ are $n$-dimensional manifolds the disjoint union $M \cup N$ is an $n$-dimensional manifold.
 \end{example}
-\sol Let $A = \br{(U_i, \varphi_i)}$ be an atlas of $M$ and $B = \br{(V_j, \psi_i)}$ be an atlas for $N$.
-Then $A \cup B$ is trivially an atlas for $X \cup Y$ since $U_i \cap V_j = \emptyset$
-for all charts, the transition functions only exist on $M$ or $N$ seperately, and are smooth by definition.
-Thus $M \cup N$ is an $n$-dimensional manifold.
+\sol Let $A = \br{(U_i, \varphi_i)}$ be an atlas of $M$ and $B = \br{(V_j, \psi_i)}$ be an atlas for $N$. Then $A \cup B$ is trivially an atlas for $X \cup Y$ since $U_i \cap V_j = \emptyset$ for all charts, the transition functions only exist on $M$ or $N$ seperately, and are smooth by definition. Thus $M \cup N$ is an $n$-dimensional manifold.
 
 
 
@@ -2563,10 +2556,18 @@ Let $P \in \text{O}(3)$ be a reflection, which is not orientation-preserving, so
 
 
 \begin{example}
-	Show that there is no path from the identity element $PT$ in SO$(3,1)$. Show that SO$(3,1)$ has two connected components. The identity component is written SO$_0(3,1)$; we warn the reader that sometimes this group is called the Lorentz group. We prefer to call it the \tb{connected Lorentz group}.
+	Show that there is no path from the identity element to the element $PT$ in SO$(3,1)$. Show that SO$(3,1)$ has two connected components. The identity component is written SO$_0(3,1)$; we warn the reader that sometimes this group is called the Lorentz group. We prefer to call it the \tb{connected Lorentz group}.
 \end{example}
-\sol TODO
-
+\sol The product $PT$ acts as\begin{marginfigure}
+	\begin{center}
+		\vspace*{30px}\includegraphics[width=\textwidth]{figs/lorentz.png}
+	\end{center}
+	\caption{The Lorentz group $O$(1,3) consists of four separated components. The identity component is denoted as SO$^+(1,3)$. Note that we have swapped the metric but this does not change the topology}
+\end{marginfigure}
+$$
+PT: \p{t, x, y, z} \mapsto \p{-t, -x, -y, -z}
+$$
+which in this basis is $\diag\p{-1,-1,-1,-1}$. Note that even though $\det(PT) = \det(TP) = (-1)^4 = 1$, we need to first multiply by either $P$ or $T$ which have determinant $-1$. A continuous path through the space of matrices has to pass through the matrices with determinant zero, but these are no longer orthogonal and thus not a part of the Lorentz group. So this path does not exist.
 
 \begin{example}
 	Show that if $\rho:G\to H$ is a homomorphism of groups, then
@@ -2890,16 +2891,17 @@ $$
 Ref [13] shows rigorously that for a map $T:\C^{2*} \to C^2$ that all the representations $U_j$ of SU$(2)$ are equivalent to their duals, i.e., $TU_j(g) = U_j^*(g)T$.
 
 
-\begin{definition}
-	\tb{Schur's lemma:} (more formal treatment)\marginnote{Refs [13, 14]}\\\\
-	Let $V$ and $W$ be irreducible complex representations of a group $G$ or Lie algebra $\mf{g}$, and let $\phi:V\to W$ be an equivariant\mn{A function $f$ is\\\\\underline{$G$-invariant}:$$f(\rho(g)x) = f(x)$$\underline{$G$-equivariant}:$$f(\rho(g)x) = \rho(g)f(x)$$} map. Then either $\phi = 0$, or $\phi$ is an isomorphism and $V \simeq W$. If $\phi$ is an isomorphism, then it must be that $\phi = \lambda\id$ for some $\lambda \in \C$.
-\end{definition}
+% \begin{definition}
+% 	\tb{Schur's lemma:} (more formal treatment)\marginnote{Refs [13, 14]}\\\\
+% 	Let $V$ and $W$ be irreducible complex representations of a group $G$ or Lie algebra $\mf{g}$, and let $\phi:V\to W$ be an equivariant\mn{A function $f$ is\\\\\underline{$G$-invariant}:$$f(\rho(g)x) = f(x)$$\underline{$G$-equivariant}:$$f(\rho(g)x) = \rho(g)f(x)$$} map. Then either $\phi = 0$, or $\phi$ is an isomorphism and $V \simeq W$. If $\phi$ is an isomorphism, then it must be that $\phi = \lambda\id$ for some $\lambda \in \C$.
+% \end{definition}
 
 
 \begin{example}\label{b2e24}
 	Show that if $S$ is a $2\times2$ matrix commuting with all $2\times2$ traceless Hermitian matrices, $S$ is a scalar multiple of the identity matrix. (One approach is to suppose $S$ commutes with the Pauli matrices $\sigma_1, \sigma_2, \sigma_3$ and derive equations its matrix entries must satisfy.)
 \end{example}
-\sol Let
+\sol \underline{Using Paulis}:\\
+Let
 $$
 S = \begin{pmatrix}
 	s_{11}&s_{12}\\s_{21}&s_{22}
@@ -2949,8 +2951,17 @@ S = \begin{pmatrix}
 	s_{11}&0\\0&s_{11}
 \end{pmatrix} = s_{11} \id
 $$
-This is also implied by Schur's lemma, because $S$ is equivariant.
-
+\\
+\underline{Using Schur's lemma}:\\
+\begin{itemize}
+	\item A standard basis for $\su(2)$ ($2\times2$ traceless \emph{anti-}Hermitian matrices) is
+	$$
+	S_i = -\frac{\di}{2} \sigma_i, \qquad i = 1,2,3
+	$$
+	$S_i$ act like infinitesimal spin rotations on two-component spinors.
+	\item A standard basis for $\so(3)$ ($3\times3$ real antisymmetric matrices) is the $J_i$ matrices (see Ex \ref{b2e45} and Pg 184 of the text), which act like infinitesimal spatial rotations on vectors in $\R^3$.
+\end{itemize}
+Ex \ref{b2e45} additionally shows that we can define $\rho: \su(2) \to \so(3)$ to be an isomorphism. $\rho$ turns out to be the adjoint representation, which is irreducible for simple Lie algebras\marginnote{See Ref [49]} (like $\su(2)$). We are given that $S$ commutes with the (real) space of $2\times2$ traceless Hermitian matrices, which is exactly the span of the Pauli matrices — it is $\di \cdot \su(2)$. This means $S$ commutes with $\rho$ as well, and by Schur's lemma, $S$ is a scalar multiple of the identity.
 
 \begin{example}
 	Using the fact that GL$(3,\R)$ is a subgroup of GL$(3,\C)$, we can think of $\rho$ as a homomorphism from SU$(2)$ to GL$(3,\C)$, or in other words, a representation of SU$(2)$ on $\C^3$. Show that this is equivalent to the spin-$1$ representation of SU$(2)$.
@@ -3506,7 +3517,7 @@ That is, multiplication in $G$ corresponds to addition in $\mf{g}$.
 \sol Basically the same steps as Ex \ref{b1e24}.
 
 
-\begin{example}
+\begin{example}\label{b2e45}
 	Show that the Lie algebras $\mf{su}(2)$ and $\mf{so}(3)$ are isomorphic as follows. First show that $\mf{su}(2)$ has as a basis the quaternions $i,J,K$, or in other words, the matrices $-\di\sigma_1, -\di\sigma_2, -\di\sigma_3$. Then show that the linear map $f:\mf{su}(2)\to \mf{so}(3)$ given by
 	$$
 	-\frac{\di}{2}\sigma_j\mapsto J_j
@@ -3525,8 +3536,7 @@ $$
 \end{aligned}
 $$
 we see that $f$ is a Lie algebra isomorphism.\\\\
-% Durp. Just realized that we don't need to go into math mode to typeset Lie groups correctly.
-Lie algebras give local but not global information about Lie groups, so the fact that $\mf{su}(2)$ and $\mf{so}(3)$ are isomorphic tells us only that SO(3) and SU(2) are locally isomorphic. And of course we know they are not globally isomorphic because ${\rm SU}(2) \twoheadrightarrow {\rm SO}(3)$ (SU(2) is a double cover of SO(3)).
+Lie algebras\marginnote{$\SU(2) \simeq S^3$ is a double cover of $\SO(3) \simeq \mathbb{RP}^3$, because $$\SU(2) / \Z_2 \simeq \SO(3)$$} give local but not global information about Lie groups, so the fact that $\mf{su}(2)$ and $\mf{so}(3)$ are isomorphic tells us only that SO(3) and SU(2) are locally isomorphic. And of course we know they are not globally isomorphic because ${\rm SU}(2) \twoheadrightarrow {\rm SO}(3)$.
 
 
 \begin{example}\label{b2e46}
@@ -3741,7 +3751,7 @@ $$
 
 
 \begin{definition}
-	Every Lie algebra $\mf{g}$ comes equipped with a natural symmetric bilinear form $\kappa\p{\cdot,\cdot}$ called the \tb{Killing form}, given by
+	Every Lie algebra $\mf{g}$ comes equipped with a natural symmetric bilinear form $\kappa\p{\cdot,\cdot}$ called the \tb{Killing form} which is the map $\kappa_\mf{g} : \mf{g} \times \mf{g} \to \C$, given by
 	$$
 		\kappa_\mf{g}\p{X, Y} := \tr\p{\ad \p{X} \circ \ad \p{Y}}
 	$$
@@ -3752,23 +3762,31 @@ $$
 \begin{example}
 	Show that $\mf{sl}(n,\R), \mf{sl}(n,\C), \mf{so}(p,q)$ and $\mf{su}(n)$ are semisimple, except for certain low-dimensional cases, which you should determine.
 \end{example}
-\sol It \marginnote{Ref [9] uses a linear combination of the Lie bracket of other elements, without resorting to the Killing form}can be shown that for $X, Y \in \gl(n,\F)$
-$$
-	\kappa_{\mf{g}}(X, Y) = 2n\tr(XY) - 2\tr(X)\tr(Y)
-$$
-See Ref [47] Ex 10.2 that explicitly computes this using structure constants.\\
-Let's specialize to the subalgebras (see Ref [48] Ex 12.3 for the full calculation):
-\begin{itemize}
-	\item \underline{$\mf{g} = \mf{sl}(n,\C)$:} The set of complex traceless matrices so $\kappa_\mf{g}(X, Y) = 2n\tr(XY)$. $\kappa_\mf{g}$ is nondegenerate for $n \ge 2$.
-	\item \underline{$\mf{g} = \mf{sl}(n,\R)$:} This follows as above, the only difference is when restricting the field to $\R$, this form is indefinite (has both positive and negative values).
-	\item \underline{$\mf{g} = \mf{so}(p,q)$:} The set of real $(p+q)\times(p+q)$ matrices preserving a quadratic form with signature $(p,q)$. With metric $\eta = \diag(\ub{1,\cdots,1}{p\text{ times}}, \ub{-1,\cdots,-1}{q\text{ times}})$, we have
-	$$
-		\so(p,q) = \br{X \in \gl(p+q, \R) ~|~ X^\intercal\eta + \eta X = 0}
-	$$
-	Because $\eta = \eta^\intercal = \eta^{-1} \implies X^\intercal = -\eta X\eta$.\\
-	We can show that $\kappa_\mf{g}(X, Y) = (p+q-2)\tr(XY)$, which is nondegenerate for $p+q > 2$.
-	\item \underline{$\mf{g} = \mf{su}(n)$:} From Ex \ref{b2e41}, we know that this is the set of traceless skew-Hermitian complex $n\times n$ matrices. We can show that $\kappa_\mf{g}(X, Y) = 2n\Re(\tr(XY))$. The product $XY$ of $X, Y\in \su(n)$ is again Hermitian so $\tr(XY) \in \R$. This reduces to the $\mathfrak{sl}$ case with the only difference being $\kappa_\mf{g}$ is negative definite.
-\end{itemize}
+\sol Here are some ways to show this result:
+\begin{enumerate}
+	\item \underline{Using the Killing form $\kappa_\mf{g}$:}\\
+		It can be shown that for $X, Y \in \gl(n,\F)$\marginnote{See Ref [47] Ex 10.2 that explicitly computes this using structure constants.}
+		$$
+			\kappa_{\mf{g}}(X, Y) = 2n\tr(XY) - 2\tr(X)\tr(Y)
+		$$
+		Let's specialize to the subalgebras:\marginnote{See Ref [48] Ex 12.3 for the full calculation}
+		\begin{itemize}
+			\item \underline{$\mf{g} = \mf{sl}(n,\C)$:} The set of complex traceless matrices so $\kappa_\mf{g}(X, Y) = 2n\tr(XY)$. $\kappa_\mf{g}$ is nondegenerate for $n \ge 2$.
+			\item \underline{$\mf{g} = \mf{sl}(n,\R)$:} This follows as above, the only difference is when restricting the field to $\R$, this form is indefinite (has both positive and negative values).
+			\item \underline{$\mf{g} = \so(p,q)$:} The set of real $(p+q)\times(p+q)$ matrices preserving a quadratic form with signature $(p,q)$. With metric $\eta = \diag(\ub{1,\cdots,1}{p\text{ times}}, \ub{-1,\cdots,-1}{q\text{ times}})$, we have
+			$$
+				\so(p,q) = \br{X \in \gl(p+q, \R) ~|~ X^\intercal\eta + \eta X = 0}
+			$$
+			Because $\eta = \eta^\intercal = \eta^{-1} \implies X^\intercal = -\eta X\eta$.\\
+			We can show that $\kappa_\mf{g}(X, Y) = (p+q-2)\tr(XY)$, which is nondegenerate for $p+q > 2$.
+			\item \underline{$\mf{g} = \su(n)$:} From Ex \ref{b2e41}, we know that this is the set of traceless skew-Hermitian complex $n\times n$ matrices. We can show that $\kappa_\mf{g}(X, Y) = 2n\Re(\tr(XY))$. The product $XY$ of $X, Y\in \su(n)$ is again Hermitian so $\tr(XY) \in \R$. This reduces to the $\mf{sl}$ case with the only difference being $\kappa_\mf{g}$ is negative definite because $\su(n)$ is compact.
+		\end{itemize}
+	\item \underline{Using the center $Z(\mf{g})$:}\marginnote{See Ref [46] `Dual Killing form'}\\
+		Recall that the centre of a group is the set of all elements which commute with every other element of the group, and every Lie algebra is a group under addition. There is a result that if the center is trivial ($Z(\mf{g}) = \br{0}$), then $\mf{g}$ is semisimple.\\
+		When $n=1$ (for $\mf{sl}$ and $\su$) then we have a scalar group, so the group $\mf{g}$ is Abelian, which means the center is the whole group. Likewise for $\so$, $2\times2$ orthogonal matrices commute, so $p+q > 2$ has a non-trivial center.
+	\item \underline{Using the basis of $\mf{g}$:}\\
+	See Ref [9] that uses a linear combination of the Lie bracket of basis matrices.
+\end{enumerate}
 
 
 \begin{example}
@@ -3782,7 +3800,7 @@ Let's specialize to the subalgebras (see Ref [48] Ex 12.3 for the full calculati
 $$
 \kappa_{\mf{g} \oplus \mf{h}}((X_1, Y_1), (X_2, Y_2)) = \kappa_{\mf{g}}(X_1, X_2) + \kappa_{\mf{h}}(Y_1, Y_2)
 $$
-This form is nondegenerate $\Leftrightarrow$ both $\kappa_{\mf{g}}$ and $\kappa_{\mf{h}}$ are nondegenerate (direct sum of nondegenerate forms is nondegenerate).
+This form is nondegenerate $\Leftrightarrow$ both $\kappa_{\mf{g}}$ and $\kappa_{\mf{h}}$ are nondegenerate (direct sum of nondegenerate forms is nondegenerate). This shows $\mf{g} \oplus \mf{h}$ is semisimple.
 
 
 
@@ -3880,10 +3898,11 @@ is smooth if $\phi$ is smooth. Without loss of generality we can set $\phi = \id
 \begin{example}\label{b2e62}
 	A 1-dimensional bundle is called a (real or complex) \tb{line bundle}. Check that the Möbius strip is a real line bundle if we regard the standard fiber as being $\R$.
 \end{example}
-\sol First we define an equivalence relation on $\R^2$ by declaring that $(x,y) \sim (x+n,(-1)^ny)$ for some $n \in \Z$. We denote:
+\sol First we define an equivalence relation on $\R^2$ by declaring that $(x,y) \sim (x+n,(-1)^ny)$ for some $n \in \Z$. We denote:\marginnote{Ref [3], Pg 251}
 \begin{itemize}
 	\item The Möbius \emph{band} as the quotient space $E = \R^2 / \sim$, and $q:\R^2 \to E$ is the quotient map.
 	\begin{marginfigure}
+		\centering
 		\begin{tikzcd}
 			\R^2 \arrow[r, "q"] \arrow[d, "\pi_1"]
 			& E \arrow[d, "\pi"] \\
@@ -3891,10 +3910,10 @@ is smooth if $\phi$ is smooth. Without loss of generality we can set $\phi = \id
 			& S^1
 		\end{tikzcd}
 		\caption{Commutative diagram of the Möbius bundle morphism}
-	\end{marginfigure}	
+	\end{marginfigure}
 	\item The Möbius \emph{strip} as the finite version, by substituting for one of the real lines a closed interval, $E = ([0,1] \cross \R) / \sim$. The restriction of $q$ to this subset of $\R^2$ is closed and surjective, also a valid quotient map.
 \end{itemize}
-In both cases $\pi_1$ is the projection map onto the first factor and $\varphi: \R \to S^1$ is the smooth covering map $\varphi(x) = e^{2\pi\di x}$. We have that $\pi:E\to S^1$ is a smooth real line bundle over $S^1$, called the Möbius \emph{bundle}. This is because we can construct from an open subset $U \subseteq S^1$ a local trivialization from $\pi^{-1}(U)$ to $U \cross \R$, with $\R$ as the standard fiber.\marginnote{Ref [3], Pg 251}
+In both cases $\pi_1$ is the projection map onto the first factor and $\varphi: \R \to S^1$ is the smooth covering map $\varphi(x) = e^{2\pi\di x}$. We have that $\pi:E\to S^1$ is a smooth real line bundle over $S^1$, called the Möbius \emph{bundle}. This is because we can construct from an open subset $U \subseteq S^1$ a local trivialization from $\pi^{-1}(U)$ to $U \cross \R$, with $\R$ as the standard fiber.
 
 
 \begin{example}
