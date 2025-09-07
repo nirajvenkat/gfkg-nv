@@ -2888,7 +2888,7 @@ $$
 		\Rightarrow \rho^*(gh) &= \rho^*(g)\rho^*(h)
 	\end{aligned}$$
 \end{itemize}
-Ref [13] shows rigorously that for a map $T:\C^{2*} \to C^2$ that all the representations $U_j$ of SU$(2)$ are equivalent to their duals, i.e., $TU_j(g) = U_j^*(g)T$.
+Ref [13] shows rigorously that for a map $T:\C^{2*} \to \C^2$ that all the representations $U_j$ of SU$(2)$ are equivalent to their duals, i.e., $TU_j(g) = U_j^*(g)T$.
 
 
 % \begin{definition}
@@ -2896,6 +2896,15 @@ Ref [13] shows rigorously that for a map $T:\C^{2*} \to C^2$ that all the repres
 % 	Let $V$ and $W$ be irreducible complex representations of a group $G$ or Lie algebra $\mf{g}$, and let $\phi:V\to W$ be an equivariant\mn{A function $f$ is\\\\\underline{$G$-invariant}:$$f(\rho(g)x) = f(x)$$\underline{$G$-equivariant}:$$f(\rho(g)x) = \rho(g)f(x)$$} map. Then either $\phi = 0$, or $\phi$ is an isomorphism and $V \simeq W$. If $\phi$ is an isomorphism, then it must be that $\phi = \lambda\id$ for some $\lambda \in \C$.
 % \end{definition}
 
+\begin{definition}
+	\tb{Schur's lemma (expanded):}\marginnote{Adapted from Ref [50]}
+	Let $V, W$ be vector spaces over $\C$ and $\rho_V, \rho_W$ be irreducible representations of a Lie group $G$ on these vector spaces. Then
+	\begin{itemize}
+		\item If $V \simeq W$ (isomorphic), there exist non-trivial maps $\phi$ from $V$ to $W$ such that, for all $g \in G$, $\rho_W(g) \circ \phi = \phi \circ \rho_V(g)$.
+		\item If $V$ and $W$ are not isomorphic, then such maps do not exist.
+	\end{itemize}
+	This results works for Lie algebras $\mf{g}$ as well.
+\end{definition}
 
 \begin{example}\label{b2e24}
 	Show that if $S$ is a $2\times2$ matrix commuting with all $2\times2$ traceless Hermitian matrices, $S$ is a scalar multiple of the identity matrix. (One approach is to suppose $S$ commutes with the Pauli matrices $\sigma_1, \sigma_2, \sigma_3$ and derive equations its matrix entries must satisfy.)
@@ -2961,7 +2970,7 @@ $$
 	$S_i$ act like infinitesimal spin rotations on two-component spinors.
 	\item A standard basis for $\so(3)$ ($3\times3$ real antisymmetric matrices) is the $J_i$ matrices (see Ex \ref{b2e45} and Pg 184 of the text), which act like infinitesimal spatial rotations on vectors in $\R^3$.
 \end{itemize}
-Ex \ref{b2e45} additionally shows that we can define $\rho: \su(2) \to \so(3)$ to be an isomorphism. $\rho$ turns out to be the adjoint representation, which is irreducible for simple Lie algebras\marginnote{See Ref [49]} (like $\su(2)$). We are given that $S$ commutes with the (real) space of $2\times2$ traceless Hermitian matrices, which is exactly the span of the Pauli matrices — it is $\di \cdot \su(2)$. This means $S$ commutes with $\rho$ as well, and by Schur's lemma, $S$ is a scalar multiple of the identity.
+Ex \ref{b2e45} additionally shows that \marginnote{See Ref [49]}we can define $\rho: \su(2) \to \so(3)$ to be an isomorphism. $\rho$ satisies the property of the \emph{adjoint representation}, because the image of $\rho$ lies in $\gl(\su(2))$ of which $\so(3)$ is a subalgebra. Also $\su(2)$ is a simple Lie algebra, which means $\rho$ is irreducible. We are given that $S$ commutes with the (real) space of $2\times2$ traceless Hermitian matrices, which is exactly the span of the Pauli matrices — it is $\di \cdot \su(2)$. This means $S$ commutes with $\rho$ as well, and by Schur's lemma, $S$ is a scalar multiple of the identity.
 
 \begin{example}
 	Using the fact that GL$(3,\R)$ is a subgroup of GL$(3,\C)$, we can think of $\rho$ as a homomorphism from SU$(2)$ to GL$(3,\C)$, or in other words, a representation of SU$(2)$ on $\C^3$. Show that this is equivalent to the spin-$1$ representation of SU$(2)$.
