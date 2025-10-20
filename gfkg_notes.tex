@@ -258,7 +258,7 @@ Now, we propose that a product of continuous maps is continuous, and a product o
 	\begin{aligned}
 		(gw)(f+g)&=(gw)(f)+(gw)(g)\\
 		(gw)(\alpha f)&=\alpha (gw)(f)\\
-		(gw)(fg)&=(gw)(f)g+(gw)v(g)
+		(gw)(fg)&=(gw)(f)g+f(gw)(g)
 	\end{aligned}
 	$$
 
@@ -345,7 +345,7 @@ An \tb{algebra} over a field is a vector space equipped with a bilinear product.
 \begin{example}
 	Show that $T_pM$ is a vector space over the real numbers.
 \end{example}
-\sol While it is true that around a point $p$ on an $n$-manifold $M$ it looks like $\R^n$ (locally Euclidean property), that is not enough to show that $T_pM$ is a vector space over the reals. Formally, we should show that the tangent vectors $v_p$ satisfy the axioms of a vector space, where $V = T_pM$ and $\F = \R^n$ which we skip here.
+\sol While it is true that around a point $p$ on an $n$-manifold $M$ it looks like $\R^n$ (locally Euclidean property), that is not enough to show that $T_pM$ is a vector space over the reals. Formally, we should show that the tangent vectors $v_p$ satisfy the axioms of a vector space (associativity, commutativity of addition, existence of zero and additive inverses, distributivity, scalar associativity and identity), where $V = T_pM$ and $\F = \R^n$ which is done in Ref [9]. In Sec \ref{b2c2} we use the fact that tangent bundle has local trivializations identifying each fibre with $\R^n$.
 
 
 \begin{example}\label{b1e12}
@@ -368,15 +368,20 @@ $$
 The tangent vector $\gamma^\prime(t)$ thus belongs to the tangent space $T_{\gamma(t)}M$.
 
 
-\begin{example}
+\begin{example}\label{b1e13}
 	Let $\phi:\R\to\R$ be given by $\phi(t)=e^t$. Let $x$ be the usual coordinate function on $\R$.
 	Show that $\phi^*x=e^x$.
 \end{example}
-\sol The map is defined as
+\sol Recall the pullback by $\phi$ acts on functions by composition:
 $$
-	\phi: t \mapsto e^t
+\phi^*f = f\circ\phi \marginnote{Specifically we consider functions $f:\R\to\R$ here}
 $$
-So $\phi^*x = x \circ \phi = e^x$.
+Here the coordinate function $x:\R\to\R$ is $x(t)=t$. Therefore for every $t\in\R$
+$$
+(\phi^*x)(t)=x(\phi(t))=\phi(t)=e^{t}=e^{x(t)}.
+$$
+Since the two functions agree at every point, $\phi^*x=e^x$.
+
 
 
 \begin{example}\label{b1e14}
@@ -402,7 +407,7 @@ $$
 	x\\y
 \end{pmatrix}
 $$
-$\phi^*x$ and $\phi^*y$ are just what the coordinates get mapped to by the above transformation.
+From Ex \ref{b1e13}, $\phi^*x, \phi^*y$ come from just applying the map $\phi$ to coordinates $x,y$.
 
 
 \begin{example}
@@ -446,8 +451,8 @@ $$
 	$$
 	is linear.
 \end{example}
-\sol Checking linearity can be done in one swift calculation:\mn{
-	Linearity basically means:
+\sol Checking linearity can be done in one swift calculation:\marginnote{
+	Linearity amounts to:
 	$$
 		f(\alpha u+\beta v) = \alpha f(u)+\beta f(v)
 	$$
@@ -759,15 +764,15 @@ Proof of uniqueness comes from the result in Ex \ref{b1e30}.
 
 \begin{example}
 	Let $\phi:\R\to\R$ be given by $\phi(t)=\sin t$. Let $dx$ be the usual 1-form on $\R$. Show that $\phi^*\:dx = \cos t\:dt$.
-	\mn{My guess is that this is what the author intended to ask, instead of $\phi_*\:dx = \cos t\:dt$, because pullback and the forms they act on are contravariant.}
+	\mn{Check the errata, pullback and the forms they act on are contravariant.}
 \end{example}
 \sol Using the fact that the exterior derivative is \tb{natural}:
 $$
 \begin{aligned}
 	\phi^*(dx)_t &= d((\phi^*x)(t))\\
 	&= d(x(\phi(t)))\marginnote{$(\phi^*x)(p) = x(\phi(p))$}\\
-	&= d(x(\sin t))\marginnote{Treating $x(\cdot)$ as selecting point $t$ (?)}\\
-	&= d(\sin t)_t\\
+	&= d(x(\sin t))\\
+	&= d(\sin t)_t\marginnote{$x$ is the coordinate function}\\
 	&= (\cos t dt)_t\\
 \end{aligned}
 $$
@@ -785,11 +790,11 @@ $$
 \sol Using Ex \ref{b1e14}:
 $$
 \begin{aligned}
-	\phi^*dx &= d(\phi^*x) = d(\cos\theta\:x-\sin\theta\:y) = \cos\theta\:dx - \sin\theta\:dy \:\textcolor{red}{- (\sin\theta\:x + \cos\theta\:y)d\theta}\\
-	\phi^*dy &= d(\phi^*y) = d(\sin\theta\:x+\cos\theta\:y) = \sin\theta\:dx + \cos\theta\:dy \:\textcolor{red}{+ (\cos\theta\:x - \sin\theta\:y)d\theta}
+	\phi^*dx &= d(\phi^*x) = d(\cos\theta\:x-\sin\theta\:y) = \cos\theta\:dx - \sin\theta\:dy \:\cancel{\textcolor{red}{- (\sin\theta\:x + \cos\theta\:y)d\theta}}\\
+	\phi^*dy &= d(\phi^*y) = d(\sin\theta\:x+\cos\theta\:y) = \sin\theta\:dx + \cos\theta\:dy \:\cancel{\textcolor{red}{+ (\cos\theta\:x - \sin\theta\:y)d\theta}}
 \end{aligned}
 $$
-However I do get these additional terms marked in \textcolor{red}{red}.
+The additional terms marked in \textcolor{red}{red} vanish because angle $\theta$ is constant.
 
 
 \begin{example}
@@ -2970,7 +2975,7 @@ $$
 	$S_i$ act like infinitesimal spin rotations on two-component spinors.
 	\item A standard basis for $\so(3)$ ($3\times3$ real antisymmetric matrices) is the $J_i$ matrices (see Ex \ref{b2e45} and Pg 184 of the text), which act like infinitesimal spatial rotations on vectors in $\R^3$.
 \end{itemize}
-Ex \ref{b2e45} additionally shows that \marginnote{See Ref [49]}we can define $\rho: \su(2) \to \so(3)$ to be an isomorphism. $\rho$ satisies the property of the \emph{adjoint representation}, because the image of $\rho$ lies in $\gl(\su(2))$ of which $\so(3)$ is a subalgebra. Also $\su(2)$ is a simple Lie algebra, which means $\rho$ is irreducible. We are given that $S$ commutes with the (real) space of $2\times2$ traceless Hermitian matrices, which is exactly the span of the Pauli matrices — it is $\di \cdot \su(2)$. This means $S$ commutes with $\rho$ as well, and by Schur's lemma, $S$ is a scalar multiple of the identity.
+Ex \ref{b2e45} additionally shows that \marginnote{See Ref [49]}we can define $\rho: \su(2) \to \so(3)$ to be an isomorphism. $\rho$ satisfies the property of the \emph{adjoint representation}, because the image of $\rho$ lies in $\gl(\su(2))$ of which $\so(3)$ is a subalgebra. Also $\su(2)$ is a simple Lie algebra, which means $\rho$ is irreducible. We are given that $S$ commutes with the (real) space of $2\times2$ traceless Hermitian matrices, which is exactly the span of the Pauli matrices — it is $\di \cdot \su(2)$. This means $S$ commutes with $\rho$ as well, and by Schur's lemma, $S$ is a scalar multiple of the identity.
 
 \begin{example}
 	Using the fact that GL$(3,\R)$ is a subgroup of GL$(3,\C)$, we can think of $\rho$ as a homomorphism from SU$(2)$ to GL$(3,\C)$, or in other words, a representation of SU$(2)$ on $\C^3$. Show that this is equivalent to the spin-$1$ representation of SU$(2)$.
@@ -5636,7 +5641,7 @@ $$
 	\Gamma_{\alpha\beta\gamma}=-\Gamma_{\gamma\beta\alpha}.
 	$$
 \end{example}
-\sol Cyclically permuting the labels ($\alpha \to \beta,\: \beta \to \gamma,\: \gamma \to \alpha$) in Ex \ref{b3e3}:
+\sol Cyclically permuting the indices ($\alpha \to \beta,\: \beta \to \gamma,\: \gamma \to \alpha$) in Ex \ref{b3e3}:
 $$
 \begin{aligned}
 	\Gamma_{\beta\gamma}^\alpha &= \frac12 g^{\alpha\delta}(\ub{\partial_\beta g_{\gamma\delta}+\partial_\gamma g_{\delta\beta}}{\text{Swap}}-\partial_\delta g_{\beta\gamma})\\
@@ -5790,7 +5795,7 @@ $$\gamma:[0,1]\to\begin{pmatrix}
 $$
 for constant $\phi_0 \in [0,2\pi]$.\\\\
 Transforming the solutions to Cartesian coordinates gives
-$$z = C \cos(\phi_0) y - C \sin(\phi_0)x$$
+$$z = C (\cos(\phi_0) y - \sin(\phi_0)x)$$
 where $C \in \R^+$. This is the equation of a plane passing through the origin. The geodesics are the intersections of this plane with the sphere, namely great circles.
 
 
@@ -5842,39 +5847,41 @@ $$
 \end{example}
 \sol $$
 \begin{aligned}
-	R_{\alpha\beta\gamma\delta}&=g_{\alpha\lambda}R_{\beta\gamma\delta}^\lambda\\
-	&=g(e_\alpha,e_\lambda)R_{\beta\gamma\delta}^\lambda\\
-	&=g(e_\alpha,R_{\beta\gamma\delta}^\lambda e_\lambda)\\
+	R_{\alpha\beta\gamma\delta}&=g_{\alpha\lambda}R^\lambda{}_{\beta\gamma\delta}\\
+	&=g(e_\alpha,e_\lambda)R^\lambda{}_{\beta\gamma\delta}\\
+	&=g(e_\alpha,R^\lambda{}_{\beta\gamma\delta} e_\lambda)\\
 	&=g(e_\alpha,R(e_\beta,e_\gamma)e_\delta)
 \end{aligned}$$
 
 
 \begin{example}\label{b3e13}
-	Write the relation $R_{\sparen{\beta\gamma\delta}}^\lambda=0$ in an explicit form, and simplify it using other symmetries.
+	Write the relation $R^\lambda{}_{[\beta\gamma\delta]}=0$ in an explicit form, and simplify it using other symmetries.
 \end{example}
 \sol Using the symmetries on Pg 383 of the text
 $$
 \begin{aligned}
-	0=R_{[\beta\gamma\delta]}^\lambda &= \frac{1}{3!} \p{
-		R_{\beta\gamma\delta}^\lambda
-		- R_{\beta\delta\gamma}^\lambda
-		- R_{\gamma\beta\delta}^\lambda
-		+ R_{\gamma\delta\beta}^\lambda
-		+ R_{\delta\beta\gamma}^\lambda
-		- R_{\delta\gamma\beta}^\lambda}\marginnote{See \tt{data/perm.ipynb}}\\
+	0=R^\lambda{}_{[\beta\gamma\delta]} &= \frac{1}{3!} \p{
+		R^\lambda{}_{\beta\gamma\delta}
+		- R^\lambda{}_{\beta\delta\gamma}
+		- R^\lambda{}_{\gamma\beta\delta}
+		+ R^\lambda{}_{\gamma\delta\beta}
+		+ R^\lambda{}_{\delta\beta\gamma}
+		- R^\lambda{}_{\delta\gamma\beta}}\marginnote{See \tt{data/perm.ipynb}}\\
 	&= \frac{1}{3!} \p{
-		R_{\beta\gamma\delta}^\lambda
-		+ R_{\delta\beta\gamma}^\lambda
-		+ R_{\beta\gamma\delta}^\lambda
-		+ R_{\gamma\delta\beta}^\lambda
-		+ R_{\delta\beta\gamma}^\lambda
-		+ R_{\gamma\delta\beta}^\lambda}\marginnote{Apply Symm 1 to the minus signs}\\
+		R^\lambda{}_{\beta\gamma\delta}
+		+ R^\lambda{}_{\delta\beta\gamma}
+		+ R^\lambda{}_{\beta\gamma\delta}
+		+ R^\lambda{}_{\gamma\delta\beta}
+		+ R^\lambda{}_{\delta\beta\gamma}
+		+ R^\lambda{}_{\gamma\delta\beta}}\marginnote{Apply Symm 1 to the minus signs}\\
 	&= \frac{1}{3} \p{
-		R_{\beta\gamma\delta}^\lambda
-		+ R_{\delta\beta\gamma}^\lambda
-		+ R_{\gamma\delta\beta}^\lambda}\\
-	&\Rightarrow R_{\beta\gamma\delta}^\lambda + R_{\delta\beta\gamma}^\lambda+ R_{\gamma\delta\beta}^\lambda=0\\
-	&\Rightarrow R_{\alpha\beta\gamma\delta} + R_{\alpha\delta\beta\gamma}+ R_{\alpha\gamma\delta\beta}=0\marginnote{Lower using $g_{\alpha\lambda}$}
+		R^\lambda{}_{\beta\gamma\delta}
+		+ R^\lambda{}_{\delta\beta\gamma}
+		+ R^\lambda{}_{\gamma\delta\beta}}\\
+	&\Rightarrow R^\lambda{}_{\beta\gamma\delta} + R^\lambda{}_{\delta\beta\gamma}+ R^\lambda{}_{\gamma\delta\beta}=0\\
+	&\Rightarrow R_{\alpha\beta\gamma\delta} + R_{\alpha\delta\beta\gamma}+ R_{\alpha\gamma\delta\beta}=0\marginnote{Lower using $g_{\alpha\lambda}$}\\
+	&\Rightarrow R_{\lambda\beta\gamma\delta} + R_{\lambda\delta\beta\gamma}+ R_{\lambda\gamma\delta\beta}=0\marginnote{Rename $\alpha\to\lambda$ to match the question}\\
+	&\Rightarrow R_{\lambda[\beta\gamma\delta]}=0
 \end{aligned}$$
 Summing up the cyclic permutations of the lower indices in square brackets goes to zero, even after the first index is lowered. This explicit form for Symm 3 is another rendition of the Bianchi identity.
 
@@ -5961,7 +5968,7 @@ $$
 \end{example}
 \sol The Ricci tensor defined as follows\marginnote{See calculation in Ref [38], Pg 168, Ex 25}
 $$
-R_{\alpha\beta} = R_{\alpha\gamma\beta}^\gamma
+R_{\alpha\beta} = R^\gamma{}_{\alpha\gamma\beta}
 $$
 by the contraction on the first and third indices. Other contractions would in
 principle also be possible: on the first and second, the first and fourth, etc. But because $R_{\alpha\beta\gamma\delta}$ is antisymmetric by Symm 4 on $\alpha$ and $\beta$ and on $\gamma$ and $\delta$, all these contractions either vanish identically or reduce to $\pm R_{\alpha\beta}$.
