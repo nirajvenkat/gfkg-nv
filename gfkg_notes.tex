@@ -6122,7 +6122,20 @@ $$
 	Show this\mn{Show that the symmetries of the Riemann tensor $R_{\beta\gamma\delta}^\alpha$ reduces the number of independent components from $n^4$, where $n$ is the dimension of spacetime, down to
 	$$\frac{n^2(n^2-1)}{12}$$}.
 \end{example}
-\sol Ref [1], Pg 206, Ex 8.12
+\sol Here we present an intuitive argument based on the symmetries of the Riemann tensor.
+\begin{enumerate}
+	\item Symm 4 shows anti-symmetry. A symmetric matrix has $\frac{n(n+1)}{2}$ independent components.
+	\item We then treat each pair of indices in $R_{\underline{\alpha\beta}\,\underline{\gamma\delta}}$ as a ``single index'', which shows symmetry as per Symm 5. An anti-symmetric matrix has $\frac{n(n+1)}{2}-n=\frac{n(n-1)}{2}$ independent components, because the diagonal has to be zero.
+	\item We then substract out the total anti-symmetry from Symm 6, because these are essentially constraints that reduce the number of independent components. Choosing 4 objects out of $n$ can be done in ${n \choose 4}$ ways.
+\end{enumerate}
+Here is the calculation as per these points:
+$$
+\begin{aligned}
+	\ub{\frac12\Big(\ub{\frac12n(n-1)}{2}\Big)\Big(\ub{\frac12n(n-1)}{2}+1\Big)}{1} - \ub{\frac{n!}{(n-4)!4!}}{3}\\
+	=\frac{n^2(n^2-1)}{12}
+\end{aligned}
+$$
+See Ref [1], Pg 206, Ex 8.12 for a different proof.
 
 
 \begin{example}
