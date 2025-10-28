@@ -5613,7 +5613,7 @@ $$
 	$$
 	Defining
 	$$
-	\nabla_\alpha=\nabla_{e_\alpha},\qquad\nabla_\alpha e_\beta-\Gamma_{\alpha\beta}^\gamma e_\gamma,
+	\nabla_\alpha=\nabla_{e_\alpha},\qquad\nabla_\alpha e_\beta=\Gamma_{\alpha\beta}^\gamma e_\gamma,
 	$$
 	and
 	$$
@@ -5984,31 +5984,36 @@ principle also be possible: on the first and second, the first and fourth, etc. 
 	R_{\alpha\beta\gamma\delta} = g_{\alpha\gamma}R_{\beta\delta} + g_{\beta\delta}R_{\alpha\gamma} - g_{\beta\delta}R_{\alpha\gamma} - g_{\alpha\delta}R_{\beta\gamma} - \frac12(g_{\alpha\gamma}g_{\beta\delta}-g_{\alpha\delta}g_{\beta\gamma})R.
 	$$
 \end{example}
-\sol As a corollary of Symm 4, $R_{\alpha\beta\gamma\delta}$ in a manifold $M$ of any dimension $n \ge 2$ can be written as a linear combination of outer products of 2-forms. Also relevant is Ex \ref{b3e21} which shows that the Riemann tensor in 2 dimensions has only $\frac{4\cdot3}{2}=1$ independent component. Furthermore, the space of 2-forms in $n=2$ is 1-dimensional, so we have
+\sol From the calculation in Ex \ref{b3e21} we know that the Riemann tensor in 2 dimensions has only $\frac{4\cdot3}{2}=1$ independent component. We can use this fact to prove that the Ricci scalar is just a scalar field that depends on \emph{Gaussian curvature}, which is a form of \emph{sectional curvature}. Thus $G_{\alpha\beta}$ vanishes. See Ref [1] Ex 8.44 for the details.\\
+Alternatively we may show this by just taking the trace of the Einstein equation $G_{\alpha\beta} \equiv R_{\alpha\beta} -\frac12g_{\alpha\beta} R$:
 $$
-R_{\alpha\beta\gamma\delta} =R_{[\alpha\beta][\gamma\delta]} = f\omega_{\alpha\beta}\omega_{\gamma\delta}\marginnote{Ref [39], Prop 1}
+g^{\alpha\beta}G_{\alpha\beta} = g^{\alpha\beta}R_{\alpha\beta} -\frac12g^{\alpha\beta}g_{\alpha\beta} R = R-\frac12\delta^\alpha_\alpha R = R-\frac{n}{2}R = R-\frac{2}{2}R =0\marginnote{Contracting Kronecker delta gives the dimension of the manifold, here $n=2$}
 $$
-where $\omega_{\alpha\beta}$ is a volume element on the 2-dimensional manifold determined by $g_{\alpha\beta}$, and $f$ is some function that is the square of the volume element, and independent of the choice of $M$. It follows that
-$$
-\begin{aligned}
-	R_{\alpha\beta} = R_{\alpha\lambda\beta}^\lambda &= g^{\lambda\gamma}R_{\lambda\alpha\gamma\beta}\\
-	&= g^{\lambda\gamma}f\omega_{\lambda\alpha}\omega_{\gamma\beta}\\
-	&= f\omega_\alpha^\gamma\omega_{\gamma\beta}\\
-	&= fg_{\alpha\beta}\\
-	\Rightarrow g^{\alpha\beta}R_{\alpha\beta} &= g^{\alpha\beta}fg_{\alpha\beta}\\
-	\Rightarrow R_\alpha^\alpha &= f\delta_\alpha^\alpha\\
-	\Rightarrow R&=2f\\
-\end{aligned}
-$$
-Thus
-$$
-G_{\alpha\beta}=R_{\alpha\beta}-\frac12Rg_{\alpha\beta}=fg_{\alpha\beta}-\frac12(2fg_{\alpha\beta})=0
-$$
+% As a corollary of Symm 4, $R_{\alpha\beta\gamma\delta}$ in a manifold $M$ of any dimension $n \ge 2$ can be written as a linear combination of outer products of 2-forms. Also relevant is Ex \ref{b3e21} which shows that the Riemann tensor in 2 dimensions has only $\frac{4\cdot3}{2}=1$ independent component. Furthermore, the space of 2-forms in $n=2$ is 1-dimensional, so we have
+% $$
+% R_{\alpha\beta\gamma\delta} =R_{[\alpha\beta][\gamma\delta]} = f\omega_{\alpha\beta}\omega_{\gamma\delta}\marginnote{Ref [39], Prop 1}
+% $$
+% where $\omega_{\alpha\beta}$ is a volume element on the 2-dimensional manifold determined by $g_{\alpha\beta}$, and $f$ is some function that is the square of the volume element, and independent of the choice of $M$. It follows that
+% $$
+% \begin{aligned}
+% 	R_{\alpha\beta} = R_{\alpha\lambda\beta}^\lambda &= g^{\lambda\gamma}R_{\lambda\alpha\gamma\beta}\\
+% 	&= g^{\lambda\gamma}f\omega_{\lambda\alpha}\omega_{\gamma\beta}\\
+% 	&= f\omega_\alpha^\gamma\omega_{\gamma\beta}\\
+% 	&= fg_{\alpha\beta}\\
+% 	\Rightarrow g^{\alpha\beta}R_{\alpha\beta} &= g^{\alpha\beta}fg_{\alpha\beta}\\
+% 	\Rightarrow R_\alpha^\alpha &= f\delta_\alpha^\alpha\\
+% 	\Rightarrow R&=2f\\
+% \end{aligned}
+% $$
+% Thus
+% $$
+% G_{\alpha\beta}=R_{\alpha\beta}-\frac12Rg_{\alpha\beta}=fg_{\alpha\beta}-\frac12(2fg_{\alpha\beta})=0
+% $$
 Which implies that every two-dimensional spacetime $M$ is a vacuum solution to Einstein's equation.\\\\
-In 3 dimensions, we contract the right hand side with $g^{\alpha\gamma}$
+In 3 dimensions, we contract the right hand side with $g^{\alpha\gamma}$:
 $$
 \begin{aligned}
-	&g^{\alpha\gamma}\p*{g_{\alpha\gamma}R_{\beta\delta} + g_{\beta\delta}R_{\alpha\gamma} - g_{\beta\delta}R_{\alpha\gamma} - g_{\alpha\delta}R_{\beta\gamma} - \frac12(g_{\alpha\gamma}g_{\beta\delta}-g_{\alpha\delta}g_{\beta\gamma})R}\marginnote{Contracting Kronecker delta gives the dimension of the manifold, contracting the Ricci tensor gives the Ricci scalar, and we treat the metric times the Ricci scalar as the Ricci tensor}\\
+	&g^{\alpha\gamma}\p*{g_{\alpha\gamma}R_{\beta\delta} + g_{\beta\delta}R_{\alpha\gamma} - g_{\beta\delta}R_{\alpha\gamma} - g_{\alpha\delta}R_{\beta\gamma} - \frac12(g_{\alpha\gamma}g_{\beta\delta}-g_{\alpha\delta}g_{\beta\gamma})R}\marginnote{Contracting the Ricci tensor gives the Ricci scalar, and we treat the metric times the Ricci scalar as the Ricci tensor}\\
 	&= \delta_\alpha^\alpha R_{\beta\delta} + g_{\beta\delta}R_\alpha^\alpha - g_{\beta\delta}R_\alpha^\alpha - \delta^\gamma_\delta R_{\beta\gamma} - \frac12(\delta_\alpha^\alpha g_{\beta\delta}- \delta^\gamma_\delta g_{\beta\gamma})R\\
 	&= 3R_{\beta\delta} + \cancel{g_{\beta\delta}R} - \cancel{g_{\beta\delta}R} - R_{\beta\delta} - \frac12(3g_{\beta\delta}- g_{\beta\delta})R\\
 	&= 2R_{\beta\delta}-g_{\beta\delta}R\\
@@ -6173,9 +6178,10 @@ This metric approaches the Minkowski metric $\diag(-1,1,1,1)$ as $L\to 1,\beta\t
 
 
 \begin{example}
-	Show that for any matrix $A$, $\det(1+sA)$ is equal to $1+s\tr(A)$ up to terms of order $s^2$. (Hint: first consider the case where $A$ is diagonalizable, and then use the fact that such matrices are dense in the space of all matrices.)
+	Show that for any matrix $A$, $\det(\id+sA)$ is equal to $1+s\tr(A)$ up to terms of order $s^2$. (Hint: first consider the case where $A$ is diagonalizable, and then use the fact that such matrices are dense in the space of all matrices.)
 \end{example}
-\sol See Ref [40].
+\sol This result is related to the \emph{directional derivative of the determinant}, which states $\tr(A)$ provides the first-order (or linear) approximation
+for how $\det(\id+sA)$ changes when $s$ is small. A visual proof can be found in Ref [7] Theorem 1.A.4 on Pg 119.
 
 
 \begin{example}\label{b3e24}
