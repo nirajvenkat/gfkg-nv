@@ -175,6 +175,7 @@
 
 \theoremstyle{theorem}
 \newtheorem{example}{Exercise}
+\numberwithin{example}{part}
 \tcolorboxenvironment{example}{
   boxrule=0pt,
   boxsep=0pt,
@@ -698,9 +699,3 @@
 {%
 \end{oldthebibliography}%
 }
-
-% Reset Exercise counter at each part
-% TODO fix bug which causes references to link incorrectly
-% \makeatletter
-% \@addtoreset{example}{part}
-% \makeatother
