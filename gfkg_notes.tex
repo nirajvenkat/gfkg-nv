@@ -6162,7 +6162,26 @@ Setting all components of $G$ to zero gives the same condition for the vacuum so
 $$
 \mims{figs/b3e22_2.pdf}{26em}
 $$
-This metric approaches the Minkowski metric $\diag(-1,1,1,1)$ as $L\to 1,\beta\to0$.
+This metric approaches the Minkowski metric $\eta_{\mu\nu} = \diag(-1,1,1,1)$ as $L\to 1,\beta\to0$. To study the linear approximations, we set small perturbations
+$$
+L(u) = 1+\epsilon\ell(u),\qquad \beta(u) = \epsilon b(u)\marginnote{(1)}
+$$
+with $\epsilon \ll 1$. Let's expand the transverse components of the metric (dropping $u$ for brevity):
+$$
+\begin{aligned}
+	g_{xx} &= L^2e^{2\beta} &\approx 1 + 2\epsilon(\ell + b) + O(\epsilon^2) \marginnote{Substitute (1), power series for exp}\\
+	g_{yy} &= L^2e^{-2\beta} &\approx 1 + 2\epsilon(\ell - b) + O(\epsilon^2)
+\end{aligned}
+$$
+As we will see in Ex \ref{b3e28}, we linearize by expressing $g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}$ where we treat $h_{\mu\nu}$ as a small perturbation. Up to first order in $\epsilon$, the transverse components of the perturbation are:
+$$
+h_{xx} = 2\epsilon(\ell + b),\qquad h_{yy} = 2\epsilon(\ell - b)
+$$
+We reintroduce the parameter $u = t - z$, also called a \emph{light-cone coordinate}, and conclude:
+\begin{itemize}
+	\item Setting $\ell(u) = 0$ (no isotropic scale perturbation) the perturbation from $b(u)$ is traceless: $h_{xx} + h_{yy} = 0$. This is called a \emph{transverse, traceless} wave pattern.
+	\item Note that up to first order in $\epsilon$, the original vacuum ODE becomes $\ell^{\prime\prime}(u) = 0$. However $b(u)$ is unconstrained at linear order, so $b(u)$ represents an arbitrary profile of ripples traveling at the speed of light in the $+z$ direction.
+\end{itemize}
 
 
 
@@ -6291,33 +6310,34 @@ $$
 $$
 
 
-\begin{example}
+\begin{example}\label{b3e28}
 	Work out the linearized Einstein equation more explicitly in the case where $g$ is a deviation\mn{Need to clarify this as it was not done in the text} to the Minkowski metric. Use a plane wave ansatz to find solutions.
 \end{example}
-\sol Summary of the calculation:\marginnote{\begin{itemize}
-	\item Ref [41] Chap 7
-	\item Ref [42] GR 5
-	\item Ref [19] 8.962 Lec 14, 15
-	\item Ref [43] IX.4
-\end{itemize}}
-\begin{itemize}
-	\item We linearize the Einstein field equations around the Minkowski metric by treating $h_{\mu\nu}$ as a small perturbation. So the overall metric is
-	$$
-	g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}
-	$$
-	\item In the harmonic gauge, the field equations reduce to the wave equation $\Box h_{\mu\nu} = 0$, where $\Box$ is the d'Alembertian or 4-D Laplacian.
-	\item Using a plane wave ansatz, we find that $h_{\mu\nu}$ represents gravitational waves traveling at the speed of light, and in the transverse-traceless gauge, the perturbation describes the two polarization states of these waves.
-\end{itemize}
-
+% \sol Summary of the calculation:\marginnote{\begin{itemize}
+% 	\item Ref [41] Chap 7
+% 	\item Ref [42] GR 5
+% 	\item Ref [19] 8.962 Lec 14, 15
+% 	\item Ref [43] IX.4
+% \end{itemize}}
+% \begin{itemize}
+% 	\item We linearize the Einstein field equations around the Minkowski metric by treating $h_{\mu\nu}$ as a small perturbation. So the overall metric is
+% 	$$
+% 	g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}
+% 	$$
+% 	\item In the harmonic gauge, the field equations reduce to the wave equation $\Box h_{\mu\nu} = 0$, where $\Box$ is the d'Alembertian or 4-D Laplacian.
+% 	\item Using a plane wave ansatz, we find that $h_{\mu\nu}$ represents gravitational waves traveling at the speed of light, and in the transverse-traceless gauge, the perturbation describes the two polarization states of these waves.
+% \end{itemize}
+\sol TODO
 
 \begin{example}
 	Derive Einstein's equations from the Einstein-Hilbert action when the metric has arbitrary signature. Derive the equations for Yang-Mills fields coupled to gravity from the Lagrangian $R\:\vol+\frac12\tr(F\wedge\star F)$ by varying both the metric and the Yang-Mills vector potential $A$.
 \end{example}
-\sol TODO\marginnote{\begin{itemize}
-	\item Ref [42] GR 4
-	\item Ref [19] 8.962 Lec 13
-	\item Ref [44] N.4
-\end{itemize}}
+\sol TODO
+% \marginnote{\begin{itemize}
+% 	\item Ref [42] GR 4
+% 	\item Ref [19] 8.962 Lec 13
+% 	\item Ref [44] N.4
+% \end{itemize}}
 
 
 \begin{definition}
