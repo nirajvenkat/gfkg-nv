@@ -6329,7 +6329,7 @@ $$
 g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}\marginnote{Ref [41], Chap 42-46}
 $$
 Note that linearized gravity is an appropriate regime only in the Newtonian limit where velocities which are small compared to $c$.\\\\
-Expanding \marginnote{The trace-reversed perturbation is$$\bar{h}_{\mu\nu} = h_{\mu\nu} - \frac12 \eta_{\mu\nu}h$$ The bar notation in GR is useful to shorten the nonlinear Einstein equation to $G_{\mu\nu} = \bar{R}_{\mu\nu}$.} $g_{\mu\nu}$ in terms of connection coefficients $\Lambda$ we ignore terms that are products of the $\Lambda$s that remove the nonlinearity. Analogously to the Lorenz gauge $\partial_\mu A^\mu = 0$ in electromagnetism, we choose the harmonic gauge or de Donder gauge $\bar{h}^{\mu\alpha}{}_{,\alpha} = 0$. Sure enough we get the linearized Einstein equation:
+Expanding \marginnote{The trace-reversed perturbation is$$\bar{h}_{\mu\nu} = h_{\mu\nu} - \frac12 \eta_{\mu\nu}h$$ The bar notation in GR is useful to shorten the nonlinear Einstein equation to $G_{\mu\nu} = \bar{R}_{\mu\nu}$.} $g_{\mu\nu}$ in terms of connection coefficients $\Lambda$ we ignore terms that are products of the $\Lambda$s that remove the nonlinearity. Analogously to the Lorenz gauge $\partial_\mu A^\mu = 0$ in electromagnetism, we choose the \emph{harmonic gauge} or \emph{de Donder gauge} $\bar{h}^{\mu\alpha}{}_{,\alpha} = 0$. Sure enough we get the linearized Einstein equation:
 $$
 \partial^2\bar{h}_{\mu\nu} = \begin{cases}
 	-16\pi GT_{\mu\nu}\qquad &\text{when sources are present} \\
@@ -6346,7 +6346,7 @@ Choosing the harmonic gauge with this ansatz has two consequences:
 	\item $A_{\alpha\mu}k^\mu = 0$: the wave's amplitude is orthogonal to its direction, making it a transverse plane wave just like electromagnetism.
 	\item ${\bf k} \cdot {\bf k} = 0$: the gravitational wave is null, implying that the gravitational field propagates at the speed of light.
 \end{itemize}
-We are then free to choose another gauge compatible with the first one that sets the trace of the amplitude components $A_{\mu\nu}$ to zero. This is called the transverse-traceless gauge, and it has the property that $\bar{h}_{\mu\nu} = h_{\mu\nu}$. We can choose the frame of static observers by setting its 4-velocity $\bf u$ such that $u^\mu = \p{1,0,0,0}$. In this frame, the amplitude components become:
+We are then free to choose another gauge compatible with the first one that sets the trace of the amplitude components $A_{\mu\nu}$ to zero. This is called the \emph{transverse-traceless gauge}, and it has the property that $\bar{h}_{\mu\nu} = h_{\mu\nu}$. We can choose the frame of static observers by setting its 4-velocity $\bf u$ such that $u^\mu = \p{1,0,0,0}$. In this frame, the amplitude components become:
 $$
 A_{\alpha\beta}=\begin{pmatrix}
 	0&0&0&0\\
@@ -6355,7 +6355,12 @@ A_{\alpha\beta}=\begin{pmatrix}
 	0&0&0&0\\
 \end{pmatrix}
 $$
-This has two solutions, corresponding to setting either $A_{xx}$ or $A_{xy}$ to zero. Each of them represents a plane gravitational wave, and are related to each other by a $45^\circ$ rotation.
+This has two solutions, corresponding to setting either $A_{xx}$ or $A_{xy}$ to zero. Each of them represents a plane gravitational wave, and are related to each other by a $45^\circ$ rotation.\\\\
+However the more practical result comes from considering a source. This is known as the \emph{Einstein quadrupole formula}, given by:
+$$
+\bar{h}_{ij}(t) \approx \frac{2G}{c^4D}\ddot{I}_{ij}\Big(t-\frac{D}{c}\Big)
+$$
+where we have Roman space-like indices, a compact source at a distance $D$ away and $I_{ij}$ is the moment of inertia tensor in mass units.
 
 \begin{example}
 	Derive Einstein's equations from the Einstein-Hilbert action when the metric has arbitrary signature. Derive the equations for Yang-Mills fields coupled to gravity from the Lagrangian $R\:\vol+\frac12\tr(F\wedge\star F)$ by varying both the metric and the Yang-Mills vector potential $A$.
