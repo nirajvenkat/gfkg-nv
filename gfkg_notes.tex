@@ -6143,7 +6143,7 @@ $$
 See Ref [1], Pg 206, Ex 8.12 for a different proof.
 
 
-\begin{example}
+\begin{example}\label{b3e22}
 	Suppose the metric on $\R^4$ has the form
 	$$
 	g=L(u)^2(e^{2\beta(u)}dx^2+e^{-2\beta(u)}dy^2)-dudv
@@ -6311,7 +6311,7 @@ $$
 
 
 \begin{example}\label{b3e28}
-	Work out the linearized Einstein equation more explicitly in the case where $g$ is a deviation\mn{Need to clarify this as it was not done in the text} to the Minkowski metric. Use a plane wave ansatz to find solutions.
+	Work out the linearized Einstein equation more explicitly in the case where $g$ is a deviation\mn{Added clarification} to the Minkowski metric. Use a plane wave ansatz to find solutions.
 \end{example}
 % \sol Summary of the calculation:\marginnote{\begin{itemize}
 % 	\item Ref [41] Chap 7
@@ -6320,14 +6320,42 @@ $$
 % 	\item Ref [43] IX.4
 % \end{itemize}}
 % \begin{itemize}
-% 	\item We linearize the Einstein field equations around the Minkowski metric by treating $h_{\mu\nu}$ as a small perturbation. So the overall metric is
-% 	$$
-% 	g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}
-% 	$$
+% 	\item 
 % 	\item In the harmonic gauge, the field equations reduce to the wave equation $\Box h_{\mu\nu} = 0$, where $\Box$ is the d'Alembertian or 4-D Laplacian.
 % 	\item Using a plane wave ansatz, we find that $h_{\mu\nu}$ represents gravitational waves traveling at the speed of light, and in the transverse-traceless gauge, the perturbation describes the two polarization states of these waves.
 % \end{itemize}
-\sol TODO
+\sol Starting from the metric in Ex \ref{b3e22}, we linearize the Einstein field equations around the Minkowski metric by treating $h_{\mu\nu}$ as a small perturbation. So the overall metric is
+$$
+g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}\marginnote{Ref [41], Chap 42-46}
+$$
+Note that linearized gravity is an appropriate regime only in the Newtonian limit where velocities which are small compared to $c$.\\\\
+Expanding \marginnote{The trace-reversed perturbation is$$\bar{h}_{\mu\nu} = h_{\mu\nu} - \frac12 \eta_{\mu\nu}h$$ The bar notation in GR is useful to shorten the nonlinear Einstein equation to $G_{\mu\nu} = \bar{R}_{\mu\nu}$.} $g_{\mu\nu}$ in terms of connection coefficients $\Lambda$ we ignore terms that are products of the $\Lambda$s that remove the nonlinearity. Analogously to the Lorenz gauge $\partial_\mu A^\mu = 0$ in electromagnetism, we choose the harmonic gauge or de Donder gauge $\bar{h}^{\mu\alpha}{}_{,\alpha} = 0$. Sure enough we get the linearized Einstein equation:
+$$
+\partial^2\bar{h}_{\mu\nu} = \begin{cases}
+	-16\pi GT_{\mu\nu}\qquad &\text{when sources are present} \\
+	0\qquad &\text{without sources}
+\end{cases}
+$$
+This looks a lot like the wave equation for the electromagnetic field. It does however involve a second index, meaning that the polarizations of the fields that solve this wave equation have to be represented as square matrices, rather than simply as column vectors, as we had in the case of the electromagnetic field. \\\\
+Let's consider an ansatz in the form of a plane gravitational wave, in the absence of sources. This can be written as:
+$$
+\bar{h}_{\mu\nu} = \Re \sparen{A_{\mu\nu} e^{\di{\bf k} \cdot {\bf x}}}
+$$
+Choosing the harmonic gauge with this ansatz has two consequences:
+\begin{itemize}
+	\item $A_{\alpha\mu}k^\mu = 0$: the wave's amplitude is orthogonal to its direction, making it a transverse plane wave just like electromagnetism.
+	\item ${\bf k} \cdot {\bf k} = 0$: the gravitational wave is null, implying that the gravitational field propagates at the speed of light.
+\end{itemize}
+We are then free to choose another gauge compatible with the first one that sets the trace of the amplitude components $A_{\mu\nu}$ to zero. This is called the transverse-traceless gauge, and it has the property that $\bar{h}_{\mu\nu} = h_{\mu\nu}$. We can choose the frame of static observers by setting its 4-velocity $\bf u$ such that $u^\mu = \p{1,0,0,0}$. In this frame, the amplitude components become:
+$$
+A_{\alpha\beta}=\begin{pmatrix}
+	0&0&0&0\\
+	0&A_{xx}&A_{xy}&0\\
+	0&A_{xy}&-A_{xx}&0\\
+	0&0&0&0\\
+\end{pmatrix}
+$$
+This has two solutions, corresponding to setting either $A_{xx}$ or $A_{xy}$ to zero. Each of them represents a plane gravitational wave, and are related to each other by a $45^\circ$ rotation.
 
 \begin{example}
 	Derive Einstein's equations from the Einstein-Hilbert action when the metric has arbitrary signature. Derive the equations for Yang-Mills fields coupled to gravity from the Lagrangian $R\:\vol+\frac12\tr(F\wedge\star F)$ by varying both the metric and the Yang-Mills vector potential $A$.
